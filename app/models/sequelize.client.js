@@ -14,12 +14,3 @@ export const sequelize = new Sequelize(
         }
     }
 );
-
-// Test to see if the connection to the database works
-
-try {
-    await sequelize.authenticate();
-    console.log('Connection to database has been established successfully. ✅')
-} catch (error) {
-    console.error('Unable to connect to the database. ❌')
-}
