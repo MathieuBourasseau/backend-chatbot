@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { chatController } from "../controllers/chat.controller.js";
 
-export const ApiRouter = Router();
+export const apiRouter = Router();
 
 // Route to get all the chats
-ApiRouter.get('/api/chats', chatController.getAll);
+apiRouter.get('/chats', chatController.getAll);
+
+// Route to identify the user 
+apiRouter.get('/user/:id, userController.getOrCreate')
