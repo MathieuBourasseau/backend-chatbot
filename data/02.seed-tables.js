@@ -1,4 +1,5 @@
-import { sequelize, User, Chat, Message } from "../app/models/index.js";
+import { User, Chat, Message } from "../app/models/index.models.js"
+import { sequelize } from "../app/models/sequelize.client.js";
 
 try {
     console.log("🌱 Début du seeding...");
