@@ -1,7 +1,7 @@
 import express from 'express'
 import 'dotenv/config'
 import { sequelize } from './app/models/sequelize.client.js';
-import { apiRouterpiRouter } from './app/routes/api.router.js';
+import { apiRouter } from './app/routes/api.router.js';
 
 // Express server configuration
 const app = express();
