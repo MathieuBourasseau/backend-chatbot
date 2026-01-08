@@ -1,4 +1,4 @@
-import { Chat } from "../models/index.models.js"
+import { Chat, Message } from "../models/index.models.js"
 import 'dotenv/config'
 
 export const chatController = {
@@ -53,8 +53,18 @@ export const chatController = {
                 user_id: user_id,
             })
 
-        } catch (error) {
+            // Create the message bounded to the chat
+            const newMessage = await Message.create({
+                content: firstMessage,
+                role: "user",
+                chat_id: newChat.id
+            })
 
+            return res.status(201).json(newChat)
+
+        } catch (error) {
+            console.error("Erreur lors de la création du chat:", error);
+            res.status(500).json({ error: "Impossible de créer le chat."})
         }
     }
 }
