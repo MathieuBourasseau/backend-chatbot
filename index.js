@@ -30,8 +30,9 @@ async function startServer() {
     }
 }
 
+// API ROUTE
+app.use('/api', apiRouter);
+
 startServer();
 
 
-// API ROUTE
-app.use('/api', apiRouter);
