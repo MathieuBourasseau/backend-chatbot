@@ -95,6 +95,7 @@ export const chatController = {
             // Send back the chat title and the AI response
             return res.status(201).json({
                 chat: newChat,
+                userMessage: newMessage,
                 aiReply: newAnswer
             })
 
