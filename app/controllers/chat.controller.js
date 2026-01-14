@@ -21,13 +21,13 @@ export const chatController = {
 
             const { firstMessage, user_id } = req.body; // Catch first message and user id from the body request
 
-            // Fetch to mistral 
+            // FETCH TO MISTRAL TO GENERATE A TITLE AND A CHAT ID
 
             const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
                 method: 'POST', // method to send content
                 headers: {
-                    'Content-type' : 'application/json', // JSON content 
-                    'Authorization' : `Bearer ${process.env.MISTRAL_API_KEY}` // API key required to use Mistral 
+                    'Content-type': 'application/json', // JSON content 
+                    'Authorization': `Bearer ${process.env.MISTRAL_API_KEY}` // API key required to use Mistral 
                 },
                 body: JSON.stringify({
                     model: "mistral-small-latest",
@@ -51,21 +51,21 @@ export const chatController = {
             const newChat = await Chat.create({
                 name: chatTitle,
                 user_id: user_id,
-            })
+            });
 
-             // Create the message bounded to the chat
+            // Create the message bounded to the chat
             const newMessage = await Message.create({
                 content: firstMessage,
                 role: "user",
                 chat_id: newChat.id
-            })
+            });
 
             // FETCH TO GET MISTRAL RESPONSE
             const aiAnswer = await fetch('https://api.mistral.ai/v1/chat/completions', {
                 method: "POST",
                 headers: {
-                    'Content-type' : 'application/json',
-                    'Authorization' : `Bearer ${process.env.MISTRAL_API_KEY}`,
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${process.env.MISTRAL_API_KEY}`,
                 },
                 body: JSON.stringify({
                     model: "mistral-small-latest",
@@ -83,10 +83,10 @@ export const chatController = {
             })
 
             const rawAiAnswer = await aiAnswer.json();
-            const aiResponse =  rawAiAnswer.choices[0].message.content;
+            const aiResponse = rawAiAnswer.choices[0].message.content;
 
             // Create the AI response in the database
-            const newAnswer  = await Message.create({
+            const newAnswer = await Message.create({
                 role: "assistant",
                 content: aiResponse,
                 chat_id: newChat.id
@@ -101,7 +101,7 @@ export const chatController = {
 
         } catch (error) {
             console.error("Erreur lors de la création du chat:", error);
-            res.status(500).json({ error: "Impossible de créer le chat."})
+            res.status(500).json({ error: "Impossible de créer le chat." })
         }
     }
 }
