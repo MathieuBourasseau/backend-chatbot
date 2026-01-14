@@ -53,14 +53,50 @@ export const chatController = {
                 user_id: user_id,
             })
 
-            // Create the message bounded to the chat
+             // Create the message bounded to the chat
             const newMessage = await Message.create({
                 content: firstMessage,
                 role: "user",
                 chat_id: newChat.id
             })
 
-            return res.status(201).json(newChat)
+            // FETCH TO GET MISTRAL RESPONSE
+            const aiAnswer = await fetch('https://api.mistral.ai/v1/chat/completions', {
+                method: "POST",
+                headers: {
+                    'Content-type' : 'application/json',
+                    'Authorization' : `Bearer ${process.env.MISTRAL_API_KEY}`,
+                },
+                body: JSON.stringify({
+                    model: "mistral-small-latest",
+                    messages: [
+                        {
+                            role: "system",
+                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur."
+                        },
+                        {
+                            role: "user",
+                            content: `${firstMessage}`
+                        }
+                    ]
+                })
+            })
+
+            const rawAiAnswer = await aiAnswer.json();
+            const aiResponse =  rawAiAnswer.choices[0].message.content;
+
+            // Create the AI response in the database
+            const newAnswer  = await Message.create({
+                role: "assistant",
+                content: aiResponse,
+                chat_id: newChat.id
+            })
+
+            // Send back the chat title and the AI response
+            return res.status(201).json({
+                chat: newChat,
+                aiReply: newAnswer
+            })
 
         } catch (error) {
             console.error("Erreur lors de la création du chat:", error);
