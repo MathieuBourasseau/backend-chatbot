@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { chatController } from "../controllers/chat.controller.js";
-import { checkFirstMessage } from "../middlewares/checkChat.js";
+import { checkChat, checkFirstMessage } from "../middlewares/checkChat.js";
 
 
 
@@ -13,4 +13,4 @@ chatRouter.get('/chats', chatController.getAll);
 chatRouter.post('/chats', checkFirstMessage, chatController.createChat);
 
 // Route to continue a chat already began 
-chatRouter.post('/chats/:chatId/messages', chatController.addMessage);
+chatRouter.post('/chats/:chatId/messages', checkChat, chatController.addMessage);
