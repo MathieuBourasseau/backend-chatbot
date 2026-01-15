@@ -1,6 +1,5 @@
 import { Chat, Message } from "../models/index.models.js"
 import 'dotenv/config'
-import { checkMessagesSchema } from "../schemas/chat.schema.js";
 
 export const chatController = {
 

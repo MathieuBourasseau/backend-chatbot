@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { checkIdSchema } from "../schemas/chat.schema";
+import { checkIdSchema } from "../schemas/chat.schema.js";
 
 export function checkId (req, res, next) {
     
