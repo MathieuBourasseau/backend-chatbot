@@ -25,13 +25,21 @@ export const chatController = {
 
             // Check in the database if this chat exists
             const chat = await Chat.findByPk(id);
-            if(!chat) {
-                return res.status(404).json({ error: "Ce chat n'existe pas."});
+            if (!chat) {
+                return res.status(404).json({ error: "Ce chat n'existe pas." });
             }
 
-            
-        } catch (error) {
+            // Get all the messages from this chat 
+            const allMessages = await Message.findAll({
+                where: { chat_id: id },
+                order: [['createdAt', 'ASC']],
+            })
 
+            return res.status(200).json(allMessages);
+
+        } catch (error) {
+            console.error("Erreur lors de la recherche du chat.", error);
+            return res.status(500).json({ error: "Une erreur est survenue pour trouver ce chat." });
         }
     },
 
