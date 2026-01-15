@@ -103,10 +103,29 @@ export const chatController = {
             console.error("Erreur lors de la création du chat:", error);
             res.status(500).json({ error: "Impossible de créer le chat." })
         }
-    }
+    },
 
     // METHOD TO ADD MESSAGE TO AN EXISTING CHAT 
+    addMessage: async (req, res) => {
 
+        try {
+
+            // Get the ID of the chat from the URL
+            const { chatId } = req.params;
+
+            // Checking the chat ID 
+            const currentChat = await Chat.findByPk(chatId);
+            if(!currentChat) {
+                return res.status(400).json({ error: "Chat introuvable."})
+            };
+
+            
+
+        } catch (error) {
+
+        }
+
+    },
     // Récupérer l'ID dans l'URL et vérifier s'il existe 
     // Récupérer le message dans le body 
     // On créé le nouveau message dans l'id correspondant au chat 
