@@ -129,6 +129,22 @@ export const chatController = {
                 chat_id: chatId,
             });
 
+            // Get the previous messages of the chat
+            const previousMessages = await Message.findAll({
+                where: { chat_id: chatId },
+                order: [[ 'createdAt', 'ASC']]
+            });
+
+            // Prepare the history messages for Mistral 
+            const historyMessages = previousMessages.map(msg => ({
+                role: msg.role,
+                content: msg.content,
+            }));
+
+            // FETCH THE HISTORY MESSAGES TO MISTRAL 
+
+            
+
         } catch (error) {
 
         }
