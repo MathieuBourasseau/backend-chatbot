@@ -115,8 +115,8 @@ export const chatController = {
 
             // Checking the chat ID 
             const currentChat = await Chat.findByPk(chatId);
-            if(!currentChat) {
-                return res.status(400).json({ error: "Chat introuvable."})
+            if (!currentChat) {
+                return res.status(400).json({ error: "Chat introuvable." })
             };
 
             // Get the new user message from the body 
@@ -132,7 +132,7 @@ export const chatController = {
             // Get the previous messages of the chat
             const previousMessages = await Message.findAll({
                 where: { chat_id: chatId },
-                order: [[ 'createdAt', 'ASC']]
+                order: [['createdAt', 'ASC']]
             });
 
             // Prepare the history messages for Mistral 
@@ -142,16 +142,44 @@ export const chatController = {
             }));
 
             // FETCH THE HISTORY MESSAGES TO MISTRAL 
+            const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${process.env.MISTRAL_API_KEY}`,
+                },
+                body: JSON.stringify({
+                    model:"mistral-small-latest",
+                    messages: [
+                        {
+                            role: "system",
+                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur."
+                        },
+                        ...historyMessages // We send to mistral all the messages from the chat
+                    ]
+                })
+            });
 
-            
+            // GET THE ANSWER FROM MISTRAL API
+            const data = await response.json();
+            const aiResponse = data.choices[0].message.content;
+
+            // SAVE MISTRAL ANSWER IN THE DATABASE 
+            const newAnswer = await Message.create({
+                role: "assistant",
+                content: aiResponse,
+                chat_id: chatId
+            });
+
+            return res.status(201).json({
+                user_message : newMessage,
+                aiReply: newAnswer,
+            })
 
         } catch (error) {
 
         }
 
     },
-    // Récupérer l'ensemble des messages et ajouter le nouveau
-    // On fait ensuite un fetch vers l'AI pour qu'elle réponde
-    // On crée la nouvelle réponse de l'ia dans l'id correspond au chat
-    // On retourne en JSON le message de l'utilisateur + la réponse de l'IA 
+   
 }
