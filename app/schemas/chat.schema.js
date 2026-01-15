@@ -6,13 +6,12 @@ export const firstMessageSchema = Joi.object({
     user_id: Joi.number().integer().positive().required()
 })
 
-// Validation schema to identify the chat id
-export const checkChatIdSchema = Joi.object({
-    chatId: Joi.number().integer().positive().required()
-})
-
 // Validation schema for the messages 
 export const checkMessagesSchema = Joi.object({
     newUserMessage: Joi.string().trim().min(1).required(),
 })
 
+// Validation of the ID in the URL 
+export const checkIdSchema = Joi.object({
+    id: Joi.number().integer().positive().required(),
+})

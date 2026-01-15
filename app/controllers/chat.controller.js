@@ -1,5 +1,6 @@
 import { Chat, Message } from "../models/index.models.js"
 import 'dotenv/config'
+import { checkMessagesSchema } from "../schemas/chat.schema.js";
 
 export const chatController = {
 
@@ -111,10 +112,10 @@ export const chatController = {
         try {
 
             // Get the ID of the chat from the URL
-            const { chatId } = req.params;
+            const { id } = req.params;
 
             // Checking the chat ID 
-            const currentChat = await Chat.findByPk(chatId);
+            const currentChat = await Chat.findByPk(id);
             if (!currentChat) {
                 return res.status(400).json({ error: "Chat introuvable." })
             };
@@ -126,12 +127,12 @@ export const chatController = {
             const newMessage = await Message.create({
                 role: "user",
                 content: newUserMessage,
-                chat_id: chatId,
+                chat_id: id,
             });
 
             // Get the previous messages of the chat
             const previousMessages = await Message.findAll({
-                where: { chat_id: chatId },
+                where: { chat_id: id },
                 order: [['createdAt', 'ASC']]
             });
 
@@ -168,7 +169,7 @@ export const chatController = {
             const newAnswer = await Message.create({
                 role: "assistant",
                 content: aiResponse,
-                chat_id: chatId
+                chat_id: id
             });
 
             return res.status(201).json({
