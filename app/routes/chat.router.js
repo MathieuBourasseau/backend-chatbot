@@ -14,5 +14,5 @@ chatRouter.get('/chats/:id/messages', checkId, chatController.getChatById);
 // ROUTE TO CREATE A NEW CHAT WITH A TITLE
 chatRouter.post('/chats', checkFirstMessage, chatController.createChat);
 
-// ROUTE TO CONTINUE AN EXISTING DISCUSSION
+// ROUTE TO ADD A MESSAGE IN AN EXISTING DISCUSSION
 chatRouter.post('/chats/:id/messages', checkChat, chatController.addMessage);

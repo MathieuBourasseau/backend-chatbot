@@ -15,6 +15,26 @@ export const chatController = {
         }
     },
 
+    // --- METHOD TO GET A CHAT BY ITS ID --- 
+    getChatById: async (req, res) => {
+
+        try {
+
+            // Get the ID from the URL
+            const { id } = req.params;
+
+            // Check in the database if this chat exists
+            const chat = await Chat.findByPk(id);
+            if(!chat) {
+                return res.status(404).json({ error: "Ce chat n'existe pas."});
+            }
+
+            
+        } catch (error) {
+
+        }
+    },
+
     // --- METHOD TO CREATE A NEW CHAT ---
     createChat: async (req, res) => {
 
@@ -150,7 +170,7 @@ export const chatController = {
                     "Authorization": `Bearer ${process.env.MISTRAL_API_KEY}`,
                 },
                 body: JSON.stringify({
-                    model:"mistral-small-latest",
+                    model: "mistral-small-latest",
                     messages: [
                         {
                             role: "system",
@@ -173,14 +193,14 @@ export const chatController = {
             });
 
             return res.status(201).json({
-                user_message : newMessage,
+                user_message: newMessage,
                 aiReply: newAnswer,
             })
 
         } catch (error) {
             console.error("Erreur lors de l'ajout du message au chat actuel.", error);
-            return res.status(500).json({ error: "Impossible d'ajouter le message."})
+            return res.status(500).json({ error: "Impossible d'ajouter le message." })
         }
     },
-   
+
 }
