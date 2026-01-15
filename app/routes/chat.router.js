@@ -13,4 +13,4 @@ chatRouter.get('/chats', chatController.getAll);
 chatRouter.post('/chats', checkFirstMessage, chatController.createChat);
 
 // Route to continue a chat already began 
-chatRouter.post('/chats/:chatId/messages')
+chatRouter.post('/chats/:chatId/messages', chatController.addMessage);
