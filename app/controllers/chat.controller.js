@@ -119,16 +119,21 @@ export const chatController = {
                 return res.status(400).json({ error: "Chat introuvable."})
             };
 
-            
+            // Get the new user message from the body 
+            const { newUserMessage } = req.body;
+
+            // Create the new user message in the database 
+            const newMessage = await Message.create({
+                role: "user",
+                content: newUserMessage,
+                chat_id: chatId,
+            });
 
         } catch (error) {
 
         }
 
     },
-    // Récupérer l'ID dans l'URL et vérifier s'il existe 
-    // Récupérer le message dans le body 
-    // On créé le nouveau message dans l'id correspondant au chat 
     // Récupérer l'ensemble des messages et ajouter le nouveau
     // On fait ensuite un fetch vers l'AI pour qu'elle réponde
     // On crée la nouvelle réponse de l'ia dans l'id correspond au chat
