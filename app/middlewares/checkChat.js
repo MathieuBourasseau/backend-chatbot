@@ -1,5 +1,5 @@
 import Joi from "joi"
-import { firstMessageSchema} from "../schemas/chat.schema.js";
+import { checkChatIdSchema, checkMessagesSchema, firstMessageSchema} from "../schemas/chat.schema.js";
 
 // Middleware to check the first message of chat
 export function checkFirstMessage(req, res, next) {
@@ -19,8 +19,12 @@ export function checkFirstMessage(req, res, next) {
 export function checkChat(req, res, next) {
 
     try {
-        Joi.attempt()
+
+        Joi.attempt(req.params, checkChatIdSchema);
+        Joi.attempt(req.body, checkMessagesSchema);
+        next()
+
     } catch (error) {
-        
+        return res.status(400).json({ error: error.message})
     }
 }

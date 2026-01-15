@@ -104,4 +104,14 @@ export const chatController = {
             res.status(500).json({ error: "Impossible de créer le chat." })
         }
     }
+
+    // METHOD TO ADD MESSAGE TO AN EXISTING CHAT 
+
+    // Récupérer l'ID dans l'URL et vérifier s'il existe 
+    // Récupérer le message dans le body 
+    // On créé le nouveau message dans l'id correspondant au chat 
+    // Récupérer l'ensemble des messages et ajouter le nouveau
+    // On fait ensuite un fetch vers l'AI pour qu'elle réponde
+    // On crée la nouvelle réponse de l'ia dans l'id correspond au chat
+    // On retourne en JSON le message de l'utilisateur + la réponse de l'IA 
 }
