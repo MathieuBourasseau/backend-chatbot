@@ -4,7 +4,7 @@ import { checkMessagesSchema } from "../schemas/chat.schema.js";
 
 export const chatController = {
 
-    // Method to get all the chats
+    // --- METHOD TO GET ALL THE CHATS ---
     getAll: async (req, res) => {
 
         try {
@@ -15,7 +15,7 @@ export const chatController = {
         }
     },
 
-    // Method to create a new chat 
+    // --- METHOD TO CREATE A NEW CHAT ---
     createChat: async (req, res) => {
 
         try {
@@ -106,7 +106,7 @@ export const chatController = {
         }
     },
 
-    // METHOD TO ADD MESSAGE TO AN EXISTING CHAT 
+    // --- METHOD TO ADD MESSAGE TO AN EXISTING CHAT ---
     addMessage: async (req, res) => {
 
         try {
@@ -169,7 +169,7 @@ export const chatController = {
             const newAnswer = await Message.create({
                 role: "assistant",
                 content: aiResponse,
-                chat_id: id
+                chat_id: id,
             });
 
             return res.status(201).json({
@@ -178,9 +178,9 @@ export const chatController = {
             })
 
         } catch (error) {
-
+            console.error("Erreur lors de l'ajout du message au chat actuel.", error);
+            return res.status(500).json({ error: "Impossible d'ajouter le message."})
         }
-
     },
    
 }
