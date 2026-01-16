@@ -4,6 +4,7 @@ import 'dotenv/config'
 export const chatController = {
 
     // --- METHOD TO GET ALL THE CHATS ---
+
     getAll: async (req, res) => {
 
         try {
@@ -15,6 +16,7 @@ export const chatController = {
     },
 
     // --- METHOD TO GET A CHAT BY ITS ID --- 
+
     getChatById: async (req, res) => {
 
         try {
@@ -31,7 +33,7 @@ export const chatController = {
             // Get all the messages from this chat 
             const allMessages = await Message.findAll({
                 where: { chat_id: id },
-                order: [['createdAt', 'ASC']],
+                order: [['created_at', 'ASC']],
             })
 
             return res.status(200).json(allMessages);
@@ -43,6 +45,7 @@ export const chatController = {
     },
 
     // --- METHOD TO CREATE A NEW CHAT ---
+    
     createChat: async (req, res) => {
 
         try {
@@ -134,6 +137,7 @@ export const chatController = {
     },
 
     // --- METHOD TO ADD MESSAGE TO AN EXISTING CHAT ---
+    
     addMessage: async (req, res) => {
 
         try {
