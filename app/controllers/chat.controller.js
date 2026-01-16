@@ -8,7 +8,9 @@ export const chatController = {
     getAll: async (req, res) => {
 
         try {
-            const chats = await Chat.findAll();
+            const chats = await Chat.findAll({
+                order: [['created_at', 'DESC']]
+            });
             res.json(chats)
         } catch (error) {
             res.status(500).json({ error: "Erreur lors de la récupération des discussions." })
@@ -137,7 +139,7 @@ export const chatController = {
     },
 
     // --- METHOD TO ADD MESSAGE TO AN EXISTING CHAT ---
-    
+
     addMessage: async (req, res) => {
 
         try {
