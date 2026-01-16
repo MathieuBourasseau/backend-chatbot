@@ -187,7 +187,7 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur."
+                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur. Fais en sorte de faire des réponses qui ont un ton humain en ajoutant des smileys."
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
