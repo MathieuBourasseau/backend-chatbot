@@ -17,8 +17,13 @@ app.use(express.json());
 // Testing that the database is working before launching the server 
 async function startServer() {
     try {
+
+        // Connect to database
         await sequelize.authenticate();
         console.log('Connection to database has been established successfully. ✅');
+        
+        // Delete and create all tables 
+        await sequelize.sync({ force: true });
 
         // Testing if the server is running
         app.listen(PORT, () => {
