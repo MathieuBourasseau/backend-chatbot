@@ -1,7 +1,8 @@
 import { sequelize } from "./sequelize.client.js";
 import { DataTypes, Model } from "sequelize"
+import bcrypt from 'bcrypt';
 
-// Creation of User model from sequelize 
+// --- CREATION OF THE USER MODEL WITH SEQUELIZE ---
 export class User extends Model {}
 
 User.init(
@@ -23,3 +24,12 @@ User.init(
         tableName: "user", // Name of the table in the database
     }
 );
+
+// Hash the user password when user is created 
+User.beforeCreate(async (user) => {
+
+    const saltRounds = 10;
+    
+    user.password = await bcrypt.hash(user.password, saltRounds);
+
+});
