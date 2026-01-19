@@ -1,5 +1,7 @@
 import { User } from "../models/index.models.js";
 import 'bcrypt';
+import jwt from 'jsonwebtoken';
+import 'dotenv/config' 
 
 export const userController = {
 
@@ -56,8 +58,19 @@ export const userController = {
             return res.status(400).json({ error: "Mot de passe invalide. "})
         }
 
-        //3. GENERATE A JWT : 
-        
+        //3. GENERATE A JWT : (headers, payload, options)
+
+        // User information to save in the token 
+        const payload = { id: user.id, email: user.email };
+
+        // Create the token
+        const token = jwt.sign(payload, process.env.SECRET, {expiresIn: 24 * 60 *60});
+
+        return res.status(200).json({
+            message: "Connexion réussie",
+            token, 
+            user: payload
+        });
 
        } catch (error) {
         
