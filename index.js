@@ -22,8 +22,8 @@ async function startServer() {
         await sequelize.authenticate();
         console.log('Connection to database has been established successfully. ✅');
         
-        // Delete and create all tables 
-        await sequelize.sync({ force: true });
+        // Allow to add modifications if needed 
+        await sequelize.sync({ alter: true });
 
         // Testing if the server is running
         app.listen(PORT, () => {
