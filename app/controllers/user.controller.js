@@ -1,4 +1,5 @@
-import { User } from "../models/index.models.js"
+import { User } from "../models/index.models.js";
+import 'bcrypt';
 
 export const userController = {
 
@@ -46,11 +47,15 @@ export const userController = {
 
         // Check if the user exists 
         if(!user){
-            return res.status(404).json({"Erreur, l'utilisateur n'existe pas."})
+            return res.status(404).json({ error: "Erreur, l'utilisateur n'existe pas."})
         };
 
         //2. VERIFY THE HASHED PASSWORD : 
-        
+        const isValid = await bcrypt.compare(password, user.password);
+        if(!isValid){
+            return res.status(400).json({ error: "Mot de passe invalide. "})
+        }
+
 
 
         //3. GENERATE A JWT
