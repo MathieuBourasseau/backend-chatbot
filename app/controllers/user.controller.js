@@ -27,5 +27,35 @@ export const userController = {
             console.error(error);
             return res.status(500).json({ error : "Un problème est survenu du côté du serveur..."})
         }
+    },
+
+    // --- METHOD TO LOG USER --- 
+
+    logUser: async (req, res) => {
+
+       try {
+
+         // 1. FIND USER :
+        // Get data from the body request 
+        const { email, password } = req.body;
+
+        // Find the user in the DB with the email
+        const user = await User.findOne({
+            where: { email }
+        });
+
+        // Check if the user exists 
+        if(!user){
+            return res.status(404).json({"Erreur, l'utilisateur n'existe pas."})
+        };
+
+        //2. VERIFY THE HASHED PASSWORD : 
+        
+
+
+        //3. GENERATE A JWT
+       } catch (error) {
+        
+       }
     }
 }
