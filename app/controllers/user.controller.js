@@ -56,9 +56,9 @@ export const userController = {
             return res.status(400).json({ error: "Mot de passe invalide. "})
         }
 
+        //3. GENERATE A JWT : 
+        
 
-
-        //3. GENERATE A JWT
        } catch (error) {
         
        }
