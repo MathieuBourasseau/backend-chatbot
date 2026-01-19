@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { checkIdentifier } from "../middlewares/checkIdentifier.js"
 import { userController } from "../controllers/user.controller.js";
 
 // Create the router

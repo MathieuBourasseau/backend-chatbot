@@ -2,20 +2,26 @@ import { User } from "../models/index.models.js"
 
 export const userController = {
 
-    getOrCreate: async (req, res) => {
+    // --- METHOD TO REGISTER USER ---
+
+    registerUser: async (req, res) => {
 
         try {
 
-            // Catch the identifier from the request
-            const { identifier } = req.params;
+            // Catch email and password from the body request
+            const { email, password } = req.body;
 
-            // Find or create new identifier in the DB
-            const [user, created ] = await User.findOrCreate({
-                where: { identifier }, // Where to search in the DB
-                defaults: { identifier } // Which identifier to create if it is not existing in the DB
-            });
+            // Create user
+            const user = await User.create({
+                email,
+                password,
+            })
             
-            return res.status(created ? 201 : 200).json(user) // Response with json object 
+            // Return only id and email
+            return res.status(201).json({
+                id: user.id, 
+                email: user.email
+            }) // Response with json object 
 
         } catch (error) {
             console.error(error);
