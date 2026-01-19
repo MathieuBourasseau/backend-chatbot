@@ -10,6 +10,11 @@ User.init(
             type: DataTypes.TEXT, //This data is a string type without limitation of characters
             allowNull: false, // Identifier is obligatory to access to conversation
             unique: true, // Identifier must be unique for each user
+        },
+        password: {
+            type: DataTypes.TEXT, // Password must be a string
+            allowNull: false, // It is an obligatory field
+            unique: false,
         }
     },
     {
