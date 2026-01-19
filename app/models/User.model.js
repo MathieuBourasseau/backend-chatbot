@@ -6,7 +6,7 @@ export class User extends Model {}
 
 User.init(
     {
-        identifier: {
+        email: {
             type: DataTypes.TEXT, //This data is a string type without limitation of characters
             allowNull: false, // Identifier is obligatory to access to conversation
             unique: true, // Identifier must be unique for each user
