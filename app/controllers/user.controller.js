@@ -42,11 +42,11 @@ export const userController = {
 
             // 1. FIND USER :
             // Get data from the body request 
-            const { email, password } = req.body;
+            const { username, password } = req.body;
 
             // Find the user in the DB with the email
             const user = await User.findOne({
-                where: { email }
+                where: { username }
             });
 
             // Check if the user exists 
