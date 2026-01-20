@@ -12,18 +12,20 @@ export const userController = {
         try {
 
             // Catch email and password from the body request
-            const { email, password } = req.body;
+            const { email, username, password } = req.body;
 
             // Create user
             const user = await User.create({
                 email,
+                username,
                 password,
             })
 
             // Return only id and email
             return res.status(201).json({
                 id: user.id,
-                email: user.email
+                email: user.email,
+                username: user.username,
             }) // Response with json object 
 
         } catch (error) {
@@ -60,7 +62,7 @@ export const userController = {
 
             //3. GENERATE A JWT : (headers, payload, options)
             // User information to save in the token 
-            const payload = { id: user.id, email: user.email };
+            const payload = { id: user.id, email: user.email, username: user.username };
 
             // Create the token
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 24 * 60 * 60 });
