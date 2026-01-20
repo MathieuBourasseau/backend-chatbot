@@ -21,7 +21,7 @@ export const userController = {
                 password,
             })
 
-            // Return only id and email
+            // Return all information except password 
             return res.status(201).json({
                 id: user.id,
                 email: user.email,
