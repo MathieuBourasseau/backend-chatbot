@@ -69,7 +69,7 @@ export const userController = {
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 24 * 60 * 60 });
 
             return res.status(200).json({
-                message: "Connexion réussie",
+                message: "Connexion réussie !",
                 token,
                 user: payload
             });

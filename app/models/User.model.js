@@ -13,13 +13,18 @@ User.init(
             unique: true, // Identifier must be unique for each user
         },
         username: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(20), // Username must be a string that cannot be beyond 20 characters
             allowNull: false,
             unique: true,
         },
         password: {
             type: DataTypes.TEXT, // Password must be a string
             allowNull: false, // It is an obligatory field
+            unique: false,
+        },
+        avatar: {
+            type: DataTypes.TEXT, // Image is a string
+            allowNull: true,
             unique: false,
         }
     },
