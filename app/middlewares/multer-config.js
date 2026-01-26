@@ -8,3 +8,12 @@ const MIME_TYPES = {
     'image/webp' : 'web'
 }
 
+// --- METHOD TO GET, SAVE AND RENAME THE FILES RECEIVED --- 
+const storage = multer.diskStorage({
+
+    // Where to save the files received
+    destination: (req, file, callback) {
+        callback(null, 'uploads');
+    }
+})
+
