@@ -5,7 +5,7 @@ const MIME_TYPES = {
     'image/jpeg' : 'jpg',
     'image/jpg' : 'jpg',
     'image/png' : 'png',
-    'image/webp' : 'web'
+    'image/webp' : 'webp'
 }
 
 // --- METHOD TO GET, SAVE AND RENAME THE FILES RECEIVED --- 
