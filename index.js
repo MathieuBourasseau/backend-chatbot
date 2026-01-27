@@ -3,6 +3,7 @@ import 'dotenv/config'
 import { sequelize } from './app/models/sequelize.client.js';
 import { apiRouter } from './app/routes/api.router.js';
 import cors from 'cors';
+import path from 'path';
 
 // Express server configuration
 const app = express();
