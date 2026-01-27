@@ -86,8 +86,17 @@ export const userController = {
             // User information to save in the token 
             const payload = { id: user.id, email: user.email, username: user.username, avatar : user.avatar };
 
+            // Define expiration token options 
+            let tokenExpiration;
+
+            if(rememberMe) {
+                tokenExpiration = '30d'
+            } else {
+                tokenExpiration = '1h'
+            }
+
             // Create the token
-            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 24 * 60 * 60 });
+            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: tokenExpiration});
 
             return res.status(200).json({
                 message: "Connexion réussie !",
