@@ -11,14 +11,34 @@ export const userController = {
 
         try {
 
+            // Create dynamic variable 
+            let avatarUrl;
+
             // Catch email and password from the body request
             const { email, username, password } = req.body;
+
+            // If the user put an avatar
+            if(req.file) {
+
+                // Elements to create url 
+                const protocol = req.protocol; 
+                const host = req.get('host');
+                const filename = req.file.filename;
+
+                avatarUrl = `${protocol}://${host}/uploads/${filename}`;
+
+            } else {
+                // If there is no avatar
+                avatarUrl = null;
+            }
+        
 
             // Create user
             const user = await User.create({
                 email,
                 username,
                 password,
+                avatar : avatarUrl,
             })
 
             // Return all information except password 
@@ -63,7 +83,7 @@ export const userController = {
 
             //3. GENERATE A JWT : (headers, payload, options)
             // User information to save in the token 
-            const payload = { id: user.id, email: user.email, username: user.username };
+            const payload = { id: user.id, email: user.email, username: user.username, avatar : user.avatar };
 
             // Create the token
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 24 * 60 * 60 });
