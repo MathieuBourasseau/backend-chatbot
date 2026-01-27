@@ -46,6 +46,7 @@ export const userController = {
                 id: user.id,
                 email: user.email,
                 username: user.username,
+                avatar: avatarUrl,
                 message:"Inscription réussie !"
             }) // Response with json object 
 
