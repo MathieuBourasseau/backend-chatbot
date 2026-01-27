@@ -11,3 +11,6 @@ userRouter.post('/signup', multerConfig, userController.registerUser);
 
 // Route to log a user 
 userRouter.post('/login', userController.logUser);
+
+// Route to check user token
+userRouter.get('/me', userController.checkToken)
