@@ -64,7 +64,7 @@ export const userController = {
 
             // 1. FIND USER :
             // Get data from the body request 
-            const { username, password } = req.body;
+            const { username, password, rememberMe } = req.body;
 
             // Find the user in the DB with the email
             const user = await User.findOne({
