@@ -182,7 +182,7 @@ export const userController = {
             const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
             await transporter.sendMail({
-                from: `"Chatbot Support" <${process.env.EMAIL_USER}>`,,
+                from: `"Chatbot Support" <${process.env.EMAIL_USER}>`,
                 to: user.email,
                 subject: "Réinitialisation de votre mot de passe",
                 html:
