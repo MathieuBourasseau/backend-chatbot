@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 // CORS policy authorization
-app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173']}));
+app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://backend-chatbot-v3xr.onrender.com/' ]}));
 
 // Transform JSON data from the front in javascript object usable in controller
 app.use(express.json()); 
