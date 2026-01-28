@@ -170,7 +170,7 @@ export const userController = {
 
             console.log("LOG_DEBUG: Tentative avec l'utilisateur :", process.env.EMAIL_USER);
             console.log("LOG_DEBUG: Longueur de la clé pass :", process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : "0");
-            
+
             // Create transporter to send the mail
             const transporter = nodemailer.createTransport({
                 host: process.env.EMAIL_HOST,
@@ -182,7 +182,7 @@ export const userController = {
                 }
             });
 
-            // Content of mail and send it to user
+            // Content of mail and send it back
             const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
             await transporter.sendMail({
