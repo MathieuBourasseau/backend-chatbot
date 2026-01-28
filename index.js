@@ -45,6 +45,14 @@ app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 // API ROUTE
 app.use('/api', apiRouter);
 
+// Cette route va nous dire si le serveur "voit" ton routeur user
+app.get('/api/check-routes', (req, res) => {
+    const routes = app._router.stack
+        .filter(r => r.route)
+        .map(r => ({ path: r.route.path, methods: r.route.methods }));
+    res.json(routes);
+});
+
 startServer();
 
 
