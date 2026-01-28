@@ -1,35 +1,52 @@
-import express from 'express';
-import 'dotenv/config';
+import express from 'express'
+import 'dotenv/config'
 import { sequelize } from './app/models/sequelize.client.js';
 import { apiRouter } from './app/routes/api.router.js';
 import cors from 'cors';
 import path from 'path';
 
+// Express server configuration
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000
 
-// Configuration Sécurisée
-app.use(cors({ origin: true, credentials: true }));
-app.use(express.json());
+// CORS policy authorization
+app.use(cors({ 
+    origin: true, 
+    credentials: true 
+}));
 
-// ROUTE DE TEST (Pour vérifier que le serveur est vivant)
-app.get('/api/health', (req, res) => {
-    res.json({ status: "OK", message: "Le serveur répond parfaitement !" });
-});
+// Transform JSON data from the front in javascript object usable in controller
+app.use(express.json()); 
 
-// Tes routes
-app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
-app.use('/api', apiRouter);
-
+// Testing that the database is working before launching the server 
 async function startServer() {
     try {
+
+        // Connect to database
         await sequelize.authenticate();
-        console.log('Database connected ✅');
+        console.log('Connection to database has been established successfully. ✅');
+        
+        // Allow to add modifications if needed 
         await sequelize.sync();
-        app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
+        // Testing if the server is running
+        app.listen(PORT, () => {
+            console.log(`Server is listening on the port : ${PORT}`)
+        })
+
     } catch (error) {
-        console.error('Database connection error ❌', error);
+        console.error('Unable to connect to the database. ❌', error)
     }
 }
 
+// AUTHORIZATION TO ACCESS UPLOADS DIRECTORY FOR AVATARS
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+
+// API ROUTE
+app.use('/api', apiRouter);
+
+app.get('/api/health', (req, res) => res.json({ status: "OK" }));
+
 startServer();
+
+
