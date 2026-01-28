@@ -136,5 +136,30 @@ export const userController = {
             console.error("Erreur lors de la vérification du token :", error);
             return res.status(401).json({ error: "Token invalide ou expiré" });
         }
+    },
+
+    // --- METHOD TO GENERATE A LINK FOR FORGOT PASSWORD ---
+    forgotPassword: async (req, res) => {
+
+        try {
+
+            // Get email from body
+            const { email } = req.body;
+
+            // Verify if the user exists with mail 
+            const user = await User.findOne({
+                where: { email }
+            })
+
+            // Stop if user does not exist
+            if(!user) {
+                return res.status(404).json({ error : "Utilisateur introuvable" });
+            };
+
+            
+
+        } catch(error) {
+
     }
+}
 }
