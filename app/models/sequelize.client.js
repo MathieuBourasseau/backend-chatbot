@@ -11,6 +11,13 @@ export const sequelize = new Sequelize(
         define: {
             createdAt: "created_at", // Use "created_at for creation of timestamp"
             underscored: true, // Use snake_case for table and column names
+        },
+
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
         }
     }
 );
