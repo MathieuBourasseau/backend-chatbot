@@ -197,7 +197,7 @@ export const userController = {
                     `
             });
 
-            // Send back to front confirmation of mail sent
+            // Send back to front confirmation
             return res.status(200).json({ message: "Un email de récupération a été envoyé !" });
 
         } catch (error) {
