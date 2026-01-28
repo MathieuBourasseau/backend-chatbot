@@ -24,7 +24,7 @@ async function startServer() {
         console.log('Connection to database has been established successfully. ✅');
         
         // Allow to add modifications if needed 
-        await sequelize.sync({ alter: true });
+        await sequelize.sync();
 
         // Testing if the server is running
         app.listen(PORT, () => {
@@ -32,7 +32,7 @@ async function startServer() {
         })
 
     } catch (error) {
-        console.error('Unable to connect to the database. ❌')
+        console.error('Unable to connect to the database. ❌', error)
     }
 }
 
