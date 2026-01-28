@@ -14,3 +14,6 @@ userRouter.post('/login', userController.logUser);
 
 // Route to check user token
 userRouter.get('/me', userController.checkToken)
+
+// Route to generate a link for new password
+userRouter.post('/forgot-password', userController.forgotPassword)
