@@ -170,11 +170,11 @@ export const userController = {
 
             // Create transporter to send the mail
             const transporter = nodemailer.createTransport({
-                host: 'smtp.ethereal.email',
-                port: 587,
+                host: process.env.EMAIL_HOST,
+                port: process.env.EMAIL_PORT,
                 auth: {
-                    user: '***REMOVED***',
-                    pass: '***REMOVED***'
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS,
                 }
             });
 
@@ -182,7 +182,7 @@ export const userController = {
             const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
             await transporter.sendMail({
-                from: '"Chat LLM" <support@chatapp.com>',
+                from: process.env.EMAIL_USER,
                 to: user.email,
                 subject: "Réinitialisation de votre mot de passe",
                 html:
