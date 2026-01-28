@@ -3,7 +3,7 @@ import { DataTypes, Model } from "sequelize"
 import bcrypt from 'bcrypt';
 
 // --- CREATION OF THE USER MODEL WITH SEQUELIZE ---
-export class User extends Model {}
+export class User extends Model { }
 
 User.init(
     {
@@ -32,7 +32,7 @@ User.init(
             allowNull: true,
             unique: true,
         },
-         reset_expires: {
+        reset_expires: {
             type: DataTypes.DATE,
             allowNull: true,
             unique: false,
@@ -49,7 +49,15 @@ User.init(
 User.beforeCreate(async (user) => {
 
     const saltRounds = 10;
-    
     user.password = await bcrypt.hash(user.password, saltRounds);
 
+});
+
+// Hash the user password when user is created 
+User.beforeUpdate(async (user) => {
+
+    if (user.changed('password')) {
+        const saltRounds = 10;
+        user.password = await bcrypt.hash(user.password, saltRounds);
+    }
 });
