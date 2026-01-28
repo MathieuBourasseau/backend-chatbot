@@ -26,6 +26,16 @@ User.init(
             type: DataTypes.TEXT, // Image is a string
             allowNull: true,
             unique: false,
+        },
+        reset_token: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+            unique: true,
+        },
+         reset_expires: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            unique: false,
         }
     },
     {
