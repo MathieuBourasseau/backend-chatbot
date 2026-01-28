@@ -168,6 +168,9 @@ export const userController = {
                 reset_expires: resetExpires
             });
 
+            console.log("LOG_DEBUG: Tentative avec l'utilisateur :", process.env.EMAIL_USER);
+            console.log("LOG_DEBUG: Longueur de la clé pass :", process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : "0");
+            
             // Create transporter to send the mail
             const transporter = nodemailer.createTransport({
                 host: process.env.EMAIL_HOST,
