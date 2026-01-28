@@ -143,65 +143,56 @@ export const userController = {
 
     // --- METHOD TO GENERATE A MAIL FOR FORGOT PASSWORD ---
     forgotPassword: async (req, res) => {
-
         try {
-
-            // Get email from body
             const { email } = req.body;
+            const user = await User.findOne({ where: { email } });
 
-            // Verify if the user exists with mail 
-            const user = await User.findOne({
-                where: { email }
-            })
-
-            // Stop if user does not exist
             if (!user) {
                 return res.status(404).json({ error: "Utilisateur introuvable" });
-            };
+            }
 
-            // Create a temporary token to allow the user to change password
             const resetToken = crypto.randomBytes(20).toString('hex');
-            const resetExpires = Date.now() + 3600000
+            const resetExpires = Date.now() + 3600000;
 
-            // Update the user in DB with the temporary token
             await user.update({
                 reset_token: resetToken,
                 reset_expires: resetExpires
             });
 
-            // Create transporter to send the mail
+            // Configuration robuste du transporteur
             const transporter = nodemailer.createTransport({
                 host: process.env.EMAIL_HOST,
-                port: process.env.EMAIL_PORT,
-                secure: false,
+                port: parseInt(process.env.EMAIL_PORT) || 587,
+                secure: false, // false pour le port 587
                 auth: {
                     user: process.env.EMAIL_USER,
                     pass: process.env.EMAIL_PASS,
+                },
+                tls: {
+                    rejectUnauthorized: false // Aide à passer sur certains environnements cloud
                 }
             });
 
-            // Content of mail and send it back
             const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
             await transporter.sendMail({
+                // On s'assure que le FROM est identique à l'USER validé sur Brevo
                 from: `"Chatbot Support" <${process.env.EMAIL_USER}>`,
                 to: user.email,
                 subject: "Réinitialisation de votre mot de passe",
-                html:
-                    `
-                    <h1>Bonjour ${user.username},</h1>
-                    <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
-                    <p>Ce lien est valable pendant 1 heure :</p>
-                    <a href="${resetUrl}" style="padding: 10px; background: blue; color: white;">Réinitialiser mon mot de passe</a>
-                    <p>Si vous n'êtes pas à l'origine de cette demande, ignorez ce mail.</p>
-                    `
+                html: `
+                <h1>Bonjour ${user.username},</h1>
+                <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
+                <p>Ce lien est valable pendant 1 heure :</p>
+                <a href="${resetUrl}" style="padding: 10px; background: blue; color: white; text-decoration: none; border-radius: 5px;">Réinitialiser mon mot de passe</a>
+                <p>Si vous n'êtes pas à l'origine de cette demande, ignorez ce mail.</p>
+            `
             });
 
-            // Send back to front confirmation
             return res.status(200).json({ message: "Un email de récupération a été envoyé !" });
 
         } catch (error) {
-            console.error("Erreur lors de l'envoi du lien de changement de mot de passe", error);
+            console.error("Détails de l'erreur SMTP:", error);
             return res.status(500).json({ error: "Problème de réinitialisation de mot de passe" });
         }
     },
