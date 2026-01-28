@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import 'dotenv/config'
 import crypto from 'crypto'
 import nodemailer from "nodemailer"
+import 'dotenv/config'
 
 export const userController = {
 
