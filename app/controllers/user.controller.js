@@ -169,15 +169,6 @@ export const userController = {
                 reset_expires: resetExpires
             });
 
-            console.log('EMAIL_USER:', process.env.EMAIL_USER);
-            console.log(
-                'EMAIL_PASS starts with xsmtpsib:',
-                process.env.EMAIL_PASS?.startsWith('xsmtpsib'),
-                'length:',
-                process.env.EMAIL_PASS?.length
-            );
-
-
             // Create transporter to send the mail
             const transporter = nodemailer.createTransport({
                 host: process.env.EMAIL_HOST,
