@@ -165,7 +165,7 @@ export const userController = {
             // Update the user in DB with the temporary token
             await user.update({
                 reset_token: resetToken,
-                reset_expire: resetExpires
+                reset_expires: resetExpires
             });
 
             // Create transporter to send the mail
@@ -173,13 +173,13 @@ export const userController = {
                 host: 'smtp.ethereal.email',
                 port: 587,
                 auth: {
-                    user: 'ton_user_ethereal',
-                    pass: 'ton_pass_ethereal'
+                    user: '***REMOVED***',
+                    pass: '***REMOVED***'
                 }
             });
 
             // Content of mail and send it to user
-            const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+            const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
             await transporter.sendMail({
                 from: '"Chat LLM" <support@chatapp.com>',
@@ -224,7 +224,7 @@ export const userController = {
             };
 
             // Verify if the token has not expired
-            if (user.reset_expires > Date.now()) {
+            if (Date.now() > user.reset_expires) {
                 return res.status(401).json({ error: "Le token a expiré" });
             }
 
@@ -241,7 +241,7 @@ export const userController = {
         } catch (error) {
 
             console.error("Erreur lors de la modification du mot de passe", error);
-            return res.status(500).json({ error: "Erreur lors du changement de mot de passe."});
+            return res.status(500).json({ error: "Erreur lors du changement de mot de passe." });
 
         }
     }
