@@ -42,6 +42,8 @@ async function startServer() {
 // AUTHORIZATION TO ACCESS UPLOADS DIRECTORY FOR AVATARS
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
+app.get('/hello', (req, res) => res.json({ message: "Le serveur est bien vivant !" }));
+
 // API ROUTE
 app.use('/api', apiRouter);
 
