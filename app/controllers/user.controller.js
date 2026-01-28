@@ -203,4 +203,4 @@ export const userController = {
             return res.status(500).json({ error: "Problème de réinitialisation de mot de passe" });
         }
     }
-}
+};
