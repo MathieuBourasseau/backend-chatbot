@@ -19,4 +19,4 @@ userRouter.get('/me', userController.checkToken)
 userRouter.post('/forgot-password', userController.forgotPassword);
 
 // Route to reset the password
-userRouter.post('/reset-password', userController.resetPassword);
+userRouter.post('/reset-password/:token', userController.resetPassword);

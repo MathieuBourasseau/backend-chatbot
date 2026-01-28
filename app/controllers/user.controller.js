@@ -140,7 +140,7 @@ export const userController = {
         }
     },
 
-    // --- METHOD TO GENERATE A LINK FOR FORGOT PASSWORD ---
+    // --- METHOD TO GENERATE A MAIL FOR FORGOT PASSWORD ---
     forgotPassword: async (req, res) => {
 
         try {
@@ -185,7 +185,7 @@ export const userController = {
                 from: '"Chat LLM" <support@chatapp.com>',
                 to: user.email,
                 subject: "Réinitialisation de votre mot de passe",
-                html: 
+                html:
                     `
                     <h1>Bonjour ${user.username},</h1>
                     <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
@@ -201,6 +201,48 @@ export const userController = {
         } catch (error) {
             console.error("Erreur lors de l'envoi du lien de changement de mot de passe", error);
             return res.status(500).json({ error: "Problème de réinitialisation de mot de passe" });
+        }
+    },
+
+    // --- METHOD TO RESET PASSWORD --- 
+    resetPassword: async (req, res) => {
+
+        try {
+            // Get token from url 
+            const { token } = req.params;
+
+            // Get password from body
+            const { password } = req.body;
+
+            // Find user with the token
+            const user = await User.findOne({
+                where: { reset_token: token }
+            });
+
+            if (!user) {
+                return res.status(401).json({ error: "Interdiction de changer de mot passe" });
+            };
+
+            // Verify if the token has not expired
+            if (user.reset_expires > Date.now()) {
+                return res.status(401).json({ error: "Le token a expiré" });
+            }
+
+            // update new password
+            user.password = password;
+            user.reset_token = null;
+            user.reset_expires = null;
+
+            // save password
+            await user.save();
+
+            return res.status(200).json({ message: "Mot de passe modifié" });
+
+        } catch (error) {
+
+            console.error("Erreur lors de la modification du mot de passe", error);
+            return res.status(500).json({ error: "Erreur lors du changement de mot de passe."});
+
         }
     }
 };
