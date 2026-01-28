@@ -53,7 +53,7 @@ User.beforeCreate(async (user) => {
 
 });
 
-// Hash the user password when user is created 
+// Hash the user password when he wants to change it
 User.beforeUpdate(async (user) => {
 
     if (user.changed('password')) {

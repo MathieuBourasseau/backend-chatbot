@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config'
 import crypto from 'crypto'
+import nodemailer from "nodemailer"
 
 export const userController = {
 
@@ -153,8 +154,8 @@ export const userController = {
             })
 
             // Stop if user does not exist
-            if(!user) {
-                return res.status(404).json({ error : "Utilisateur introuvable" });
+            if (!user) {
+                return res.status(404).json({ error: "Utilisateur introuvable" });
             };
 
             // Create a temporary token to allow the user to change password
@@ -163,13 +164,43 @@ export const userController = {
 
             // Update the user in DB with the temporary token
             await user.update({
-                reset_token : resetToken,
+                reset_token: resetToken,
                 reset_expire: resetExpires
-            })
+            });
 
+            // Create transporter to send the mail
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.ethereal.email',
+                port: 587,
+                auth: {
+                    user: 'ton_user_ethereal',
+                    pass: 'ton_pass_ethereal'
+                }
+            });
 
-        } catch(error) {
+            // Content of mail and send it to user
+            const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
 
+            await transporter.sendMail({
+                from: '"Chat LLM" <support@chatapp.com>',
+                to: user.email,
+                subject: "Réinitialisation de votre mot de passe",
+                html: 
+                    `
+                    <h1>Bonjour ${user.username},</h1>
+                    <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
+                    <p>Ce lien est valable pendant 1 heure :</p>
+                    <a href="${resetUrl}" style="padding: 10px; background: blue; color: white;">Réinitialiser mon mot de passe</a>
+                    <p>Si vous n'êtes pas à l'origine de cette demande, ignorez ce mail.</p>
+                    `
+            });
+
+            // Send back to front confirmation
+            return res.status(200).json({ message: "Un email de récupération a été envoyé !" });
+
+        } catch (error) {
+            console.error("Erreur lors de l'envoi du lien de changement de mot de passe", error);
+            return res.status(500).json({ error: "Problème de réinitialisation de mot de passe" });
+        }
     }
-}
 }
