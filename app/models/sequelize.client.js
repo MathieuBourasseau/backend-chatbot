@@ -5,7 +5,7 @@ import { Sequelize } from 'sequelize';
 // Set up general architecture and option of the database
 
 export const sequelize = new Sequelize(
-    process.env.DB_URL,
+    process.env.DB_URL || process.env.DATABASE_URL,
     {
         logging: false, // Disable Sequelize console logging
         define: {
