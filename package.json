@@ -7,7 +7,8 @@
     "dev": "node --watch index.js",
     "db:create": "node ./data/01.create-tables.js",
     "db:seeding": "node ./data/02.seed-tables.js",
-    "db:reset": "npm run db:create && npm run db:seeding"
+    "db:reset": "npm run db:create && npm run db:seeding",
+    "start": "node index.js"
   },
   "keywords": [],
   "type": "module",
