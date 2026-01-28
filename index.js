@@ -47,10 +47,28 @@ app.use('/api', apiRouter);
 
 // Cette route va nous dire si le serveur "voit" ton routeur user
 app.get('/api/check-routes', (req, res) => {
-    const routes = app._router.stack
-        .filter(r => r.route)
-        .map(r => ({ path: r.route.path, methods: r.route.methods }));
-    res.json(routes);
+    const printRoutes = (stack, prefix = '') => {
+        let routes = [];
+        stack.forEach((middleware) => {
+            if (middleware.route) {
+                // Route directe
+                routes.push(`${prefix}${middleware.route.path}`);
+            } else if (middleware.name === 'router') {
+                // Routeur imbriqué (ce qui nous intéresse !)
+                const newPrefix = prefix + (middleware.regexp.source
+                    .replace('^\\', '')
+                    .replace('\\/?(?=\\/|$)', '')
+                    .replace(/\\\//g, '/'));
+                routes.push(...printRoutes(middleware.handle.stack, newPrefix));
+            }
+        });
+        return routes;
+    };
+
+    res.json({
+        message: "Liste complète des routes détectées :",
+        routes: printRoutes(app._router.stack)
+    });
 });
 
 startServer();
