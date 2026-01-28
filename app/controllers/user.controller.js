@@ -2,6 +2,7 @@ import { User } from "../models/index.models.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config'
+import crypto from 'crypto'
 
 export const userController = {
 
@@ -156,7 +157,16 @@ export const userController = {
                 return res.status(404).json({ error : "Utilisateur introuvable" });
             };
 
-            
+            // Create a temporary token to allow the user to change password
+            const resetToken = crypto.randomBytes(20).toString('hex');
+            const resetExpires = Date.now() + 3600000
+
+            // Update the user in DB with the temporary token
+            await user.update({
+                reset_token : resetToken,
+                reset_expire: resetExpires
+            })
+
 
         } catch(error) {
 
