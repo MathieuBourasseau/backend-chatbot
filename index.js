@@ -45,8 +45,6 @@ app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 // API ROUTE
 app.use('/api', apiRouter);
 
-app.get('/api/health', (req, res) => res.json({ status: "OK" }));
-
 startServer();
 
 
