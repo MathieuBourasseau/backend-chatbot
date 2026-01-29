@@ -175,7 +175,7 @@ export const chatController = {
             // Get the previous messages of the chat
             const previousMessages = await Message.findAll({
                 where: { chat_id: id },
-                order: [['createdAt', 'ASC']]
+                order: [['created_at', 'ASC']]
             });
 
             // Prepare the history messages for Mistral 
@@ -207,9 +207,9 @@ export const chatController = {
             const data = await response.json();
 
             if (!data.choices || data.choices.length === 0) {
-                throw new Error("Erreur de réponse Mistral dans addMessage.");
+                throw new Error("Erreur de réponse Mistral dans la création de message.");
             }
-            
+
             const aiResponse = data.choices[0].message.content;
             
 
