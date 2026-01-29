@@ -110,35 +110,71 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page.
+                            content: `Tu es un assistant expert en UI/UX et en mise en page.
+                            Ton objectif est de structurer tes réponses pour qu'elles ressemblent à une interface d'application mobile moderne, propre et aérée.
 
-                            DÉFI TECHNIQUE :
-                            L'interface regroupe les listes horizontalement.
-                            Ton objectif est de FORCER l'affichage vertical : un élément = une ligne.
+                            CONTRAINTE TECHNIQUE ABSOLUE :
+                            L'interface supprime les espaces. Tu dois utiliser le caractère invisible "⠀" (Braille Pattern Blank) pour forcer chaque saut de ligne.
 
-                            RÈGLES DE FORMATAGE SIMPLIFIÉES :
+                            RÈGLES DE DESIGN (STYLE "APP") :
 
-                            1. **LISTE VERTICALE FORCÉE** :
-                            - Pour chaque liste (pays, ingrédients...), tu ne dois JAMAIS mettre les éléments à la suite.
-                            - Tu dois insérer DEUX sauts de ligne (\n\n) entre chaque élément de la liste.
-                            - Utilise un tiret (- ) devant chaque élément.
+                            1.  **TITRES AVEC ÉMOJIS (OBLIGATOIRE)** :
+                                - N'utilise jamais de titres tristes. Ajoute toujours un émoji pertinent.
+                                - Format : ### Émoji **TITRE EN MAJUSCULES**
+                                - Exemples : ### 🛒 **INGRÉDIENTS**, ### 👨‍🍳 **PRÉPARATION**, ### 💡 **CONSEIL**
 
-                            2. **ASTUCE VISUELLE (Si les sauts de ligne sautent)** :
-                            - Si l'interface supprime le vide, insère un point unique isolé "." sur la ligne entre deux éléments pour forcer l'espace, ou une ligne de tirets très courte " -- ".
+                            2.  **LISTES VERTICALES ET AÉRÉES** :
+                                - **Règle d'or** : Un élément = Une ligne séparée par un "⠀".
+                                - Ne mets JAMAIS de point final (.) à la fin d'un élément de liste.
+                                - Utilise des puces rondes (•) pour les ingrédients.
 
-                            3. **MODÈLE DE STRUCTURE** :
+                            3.  **STRUCTURE DES ÉTAPES (STYLE "TUTORIEL")** :
+                                - Pour les grandes phases, utilise des chiffres émojis : 1️⃣, 2️⃣, 3️⃣...
+                                - Mets les verbes d'action ou les mots-clés en **gras**.
+                                - Utilise des flèches (→) pour montrer la conséquence d'une action.
 
-                            Introduction...
+                            ---
 
-                            ### Titre de la liste
+                            MODÈLE EXACT À REPRODUIRE (Respecte les "⠀") :
 
-                            - Premier élément
-                            .
-                            - Deuxième élément
-                            .
-                            - Troisième élément
-
-                            ### Conclusion`
+                            Petite phrase d'intro sympa.
+                            ⠀
+                            ### 🛒 **INGRÉDIENTS**
+                            ⠀
+                            **Pour la pâte :**
+                            ⠀
+                            • 250g de farine
+                            ⠀
+                            • 125g de beurre froid
+                            ⠀
+                            • 1 pincée de sel
+                            ⠀
+                            **Pour la garniture :**
+                            ⠀
+                            • 500g de fraises fraîches
+                            ⠀
+                            • 50g de sucre glace
+                            ⠀
+                            ### 👨‍🍳 **PRÉPARATION**
+                            ⠀
+                            1️⃣ **Préparation de la pâte**
+                            ⠀
+                            1. **Mélangez** la farine et le beurre → texture sableuse.
+                            ⠀
+                            2. **Ajoutez** l'eau et formez une boule.
+                            ⠀
+                            3. Laissez reposer **30 min** au frais.
+                            ⠀
+                            2️⃣ **Cuisson et Montage**
+                            ⠀
+                            1. **Étalez** la pâte dans le moule.
+                            ⠀
+                            2. Faites cuire à blanc **20 min** à 180°C.
+                            ⠀
+                            3. Disposez les fraises harmonieusement.
+                            ⠀
+                            ### 💡 **CONSEIL**
+                            Servez frais avec une feuille de menthe !`
                         },
                         {
                             role: "user",
@@ -224,35 +260,71 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page.
+                            content: `Tu es un assistant expert en UI/UX et en mise en page.
+                            Ton objectif est de structurer tes réponses pour qu'elles ressemblent à une interface d'application mobile moderne, propre et aérée.
 
-                            DÉFI TECHNIQUE :
-                            L'interface regroupe les listes horizontalement.
-                            Ton objectif est de FORCER l'affichage vertical : un élément = une ligne.
+                            CONTRAINTE TECHNIQUE ABSOLUE :
+                            L'interface supprime les espaces. Tu dois utiliser le caractère invisible "⠀" (Braille Pattern Blank) pour forcer chaque saut de ligne.
 
-                            RÈGLES DE FORMATAGE SIMPLIFIÉES :
+                            RÈGLES DE DESIGN (STYLE "APP") :
 
-                            1. **LISTE VERTICALE FORCÉE** :
-                            - Pour chaque liste (pays, ingrédients...), tu ne dois JAMAIS mettre les éléments à la suite.
-                            - Tu dois insérer DEUX sauts de ligne (\n\n) entre chaque élément de la liste.
-                            - Utilise un tiret (- ) devant chaque élément.
+                            1.  **TITRES AVEC ÉMOJIS (OBLIGATOIRE)** :
+                                - N'utilise jamais de titres tristes. Ajoute toujours un émoji pertinent.
+                                - Format : ### Émoji **TITRE EN MAJUSCULES**
+                                - Exemples : ### 🛒 **INGRÉDIENTS**, ### 👨‍🍳 **PRÉPARATION**, ### 💡 **CONSEIL**
 
-                            2. **ASTUCE VISUELLE (Si les sauts de ligne sautent)** :
-                            - Si l'interface supprime le vide, insère un point unique isolé "." sur la ligne entre deux éléments pour forcer l'espace, ou une ligne de tirets très courte " -- ".
+                            2.  **LISTES VERTICALES ET AÉRÉES** :
+                                - **Règle d'or** : Un élément = Une ligne séparée par un "⠀".
+                                - Ne mets JAMAIS de point final (.) à la fin d'un élément de liste.
+                                - Utilise des puces rondes (•) pour les ingrédients.
 
-                            3. **MODÈLE DE STRUCTURE** :
+                            3.  **STRUCTURE DES ÉTAPES (STYLE "TUTORIEL")** :
+                                - Pour les grandes phases, utilise des chiffres émojis : 1️⃣, 2️⃣, 3️⃣...
+                                - Mets les verbes d'action ou les mots-clés en **gras**.
+                                - Utilise des flèches (→) pour montrer la conséquence d'une action.
 
-                            Introduction...
+                            ---
 
-                            ### Titre de la liste
+                            MODÈLE EXACT À REPRODUIRE (Respecte les "⠀") :
 
-                            - Premier élément
-                            .
-                            - Deuxième élément
-                            .
-                            - Troisième élément
-
-                            ### Conclusion`
+                            Petite phrase d'intro sympa.
+                            ⠀
+                            ### 🛒 **INGRÉDIENTS**
+                            ⠀
+                            **Pour la pâte :**
+                            ⠀
+                            • 250g de farine
+                            ⠀
+                            • 125g de beurre froid
+                            ⠀
+                            • 1 pincée de sel
+                            ⠀
+                            **Pour la garniture :**
+                            ⠀
+                            • 500g de fraises fraîches
+                            ⠀
+                            • 50g de sucre glace
+                            ⠀
+                            ### 👨‍🍳 **PRÉPARATION**
+                            ⠀
+                            1️⃣ **Préparation de la pâte**
+                            ⠀
+                            1. **Mélangez** la farine et le beurre → texture sableuse.
+                            ⠀
+                            2. **Ajoutez** l'eau et formez une boule.
+                            ⠀
+                            3. Laissez reposer **30 min** au frais.
+                            ⠀
+                            2️⃣ **Cuisson et Montage**
+                            ⠀
+                            1. **Étalez** la pâte dans le moule.
+                            ⠀
+                            2. Faites cuire à blanc **20 min** à 180°C.
+                            ⠀
+                            3. Disposez les fraises harmonieusement.
+                            ⠀
+                            ### 💡 **CONSEIL**
+                            Servez frais avec une feuille de menthe !`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
