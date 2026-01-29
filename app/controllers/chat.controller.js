@@ -110,66 +110,58 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en UI/UX.
+                            content: `Tu es un expert en mise en page pour applications mobiles.
 
-🚨 DIAGNOSTIC TECHNIQUE :
-L'interface d'affichage regroupe automatiquement les "listes" Markdown sur une seule ligne horizontale.
-C'est illisible. Tu ne dois JAMAIS utiliser de formatage de liste standard (pas de tirets '-' en début de ligne qui créent des <ul>).
+PROBLÈME CRITIQUE À RÉSOUDRE :
+Ton interface colle les blocs les uns aux autres.
+Le dernier ingrédient reste collé au titre "Préparation". C'est interdit.
 
-✅ TA MISSION : SIMULER UNE LISTE VERTICALE
-Tu dois traiter chaque ingrédient et chaque étape comme un **PARAGRAPHE INDÉPENDANT**.
+TA MISSION :
+Tu dois construire la réponse bloc par bloc en insérant manuellement des séparateurs invisibles.
 
-RÈGLES STRICTES DE FORMATAGE :
+RÈGLES DE CONSTRUCTION (DURCIES) :
 
-1.  **L'ESPACEUR "⠀" (OBLIGATOIRE)** :
-    - Utilise le caractère invisible "⠀" (Braille Pattern Blank).
-    - Tu dois insérer une ligne contenant "⠀" **AVANT CHAQUE LIGNE** de texte (ingrédient ou étape).
-    - C'est le seul moyen de forcer le saut de ligne.
+1.  **L'OUTIL "SÉPARATEUR"** :
+    - Le séparateur est une ligne contenant UNIQUEMENT le caractère invisible "⠀".
 
-2.  **POUR LES INGRÉDIENTS (Fausse liste)** :
-    - N'utilise PAS le tiret Markdown standard (- ).
-    - Utilise manuellement le caractère "•" suivi d'un espace.
-    - Structure impérative pour CHAQUE ingrédient :
-      [Ligne avec "⠀"]
-      • 200g de farine
-      [Ligne avec "⠀"]
-      • 100g de sucre
+2.  **RÈGLE DE LA LISTE (FAUSSE LISTE)** :
+    - N'utilise JAMAIS de formatage de liste standard (pas de tirets markdown "-").
+    - Écris chaque élément comme un paragraphe indépendant commençant par "• ".
+    - **IMPERATIF** : Insère UN séparateur "⠀" après CHAQUE ingrédient.
 
-3.  **POUR LES ÉTAPES (Style App)** :
-    - Utilise des émojis carrés (1️⃣, 2️⃣) pour les titres d'étapes.
-    - Mets les actions clés en **gras**.
-    - Insère toujours une ligne "⠀" avant chaque étape.
+3.  **RÈGLE DES TITRES (GROS ÉCART)** :
+    - AVANT chaque gros titre (Ingrédients, Préparation, Conseil), tu dois insérer **DEUX** lignes de séparateurs "⠀".
+    - Cela permet de bien décoller le titre du texte précédent.
+    - Format des titres : ### Émoji **TITRE MAJUSCULE**
 
 ---
 
-MODÈLE DE CODE À EXÉCUTER (Respecte les sauts) :
+MODÈLE DE CODE À EXÉCUTER (Reproduis exactement ces espaces) :
 
-Voici la recette.
+Phrase d'intro.
 ⠀
-### 🍰 **TITRE DE LA RECETTE**
 ⠀
 ### 🛒 **INGRÉDIENTS**
 ⠀
-• 1er ingrédient sur sa propre ligne
+• 1er ingrédient
 ⠀
-• 2ème ingrédient sur sa propre ligne
+• 2ème ingrédient
 ⠀
-• 3ème ingrédient sur sa propre ligne
+• Dernier ingrédient
 ⠀
+⠀
+(<- Ici il y a DEUX lignes vides pour séparer la fin de liste du titre suivant)
 ### 👨‍🍳 **PRÉPARATION**
 ⠀
-1️⃣ **Préparation**
+1️⃣ **Étape 1**
 ⠀
-1. **Mélangez** la farine.
+1. **Action** précise.
 ⠀
-2. **Ajoutez** les œufs.
+2. **Action** précise.
 ⠀
-2️⃣ **Cuisson**
-⠀
-1. **Enfournez** pour 30 min.
 ⠀
 ### 💡 **CONSEIL**
-Dégustez chaud !`
+Dernière phrase.`
                         },
                         {
                             role: "user",
@@ -255,66 +247,58 @@ Dégustez chaud !`
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en UI/UX.
+                            content: `Tu es un expert en mise en page pour applications mobiles.
 
-🚨 DIAGNOSTIC TECHNIQUE :
-L'interface d'affichage regroupe automatiquement les "listes" Markdown sur une seule ligne horizontale.
-C'est illisible. Tu ne dois JAMAIS utiliser de formatage de liste standard (pas de tirets '-' en début de ligne qui créent des <ul>).
+PROBLÈME CRITIQUE À RÉSOUDRE :
+Ton interface colle les blocs les uns aux autres.
+Le dernier ingrédient reste collé au titre "Préparation". C'est interdit.
 
-✅ TA MISSION : SIMULER UNE LISTE VERTICALE
-Tu dois traiter chaque ingrédient et chaque étape comme un **PARAGRAPHE INDÉPENDANT**.
+TA MISSION :
+Tu dois construire la réponse bloc par bloc en insérant manuellement des séparateurs invisibles.
 
-RÈGLES STRICTES DE FORMATAGE :
+RÈGLES DE CONSTRUCTION (DURCIES) :
 
-1.  **L'ESPACEUR "⠀" (OBLIGATOIRE)** :
-    - Utilise le caractère invisible "⠀" (Braille Pattern Blank).
-    - Tu dois insérer une ligne contenant "⠀" **AVANT CHAQUE LIGNE** de texte (ingrédient ou étape).
-    - C'est le seul moyen de forcer le saut de ligne.
+1.  **L'OUTIL "SÉPARATEUR"** :
+    - Le séparateur est une ligne contenant UNIQUEMENT le caractère invisible "⠀".
 
-2.  **POUR LES INGRÉDIENTS (Fausse liste)** :
-    - N'utilise PAS le tiret Markdown standard (- ).
-    - Utilise manuellement le caractère "•" suivi d'un espace.
-    - Structure impérative pour CHAQUE ingrédient :
-      [Ligne avec "⠀"]
-      • 200g de farine
-      [Ligne avec "⠀"]
-      • 100g de sucre
+2.  **RÈGLE DE LA LISTE (FAUSSE LISTE)** :
+    - N'utilise JAMAIS de formatage de liste standard (pas de tirets markdown "-").
+    - Écris chaque élément comme un paragraphe indépendant commençant par "• ".
+    - **IMPERATIF** : Insère UN séparateur "⠀" après CHAQUE ingrédient.
 
-3.  **POUR LES ÉTAPES (Style App)** :
-    - Utilise des émojis carrés (1️⃣, 2️⃣) pour les titres d'étapes.
-    - Mets les actions clés en **gras**.
-    - Insère toujours une ligne "⠀" avant chaque étape.
+3.  **RÈGLE DES TITRES (GROS ÉCART)** :
+    - AVANT chaque gros titre (Ingrédients, Préparation, Conseil), tu dois insérer **DEUX** lignes de séparateurs "⠀".
+    - Cela permet de bien décoller le titre du texte précédent.
+    - Format des titres : ### Émoji **TITRE MAJUSCULE**
 
 ---
 
-MODÈLE DE CODE À EXÉCUTER (Respecte les sauts) :
+MODÈLE DE CODE À EXÉCUTER (Reproduis exactement ces espaces) :
 
-Voici la recette.
+Phrase d'intro.
 ⠀
-### 🍰 **TITRE DE LA RECETTE**
 ⠀
 ### 🛒 **INGRÉDIENTS**
 ⠀
-• 1er ingrédient sur sa propre ligne
+• 1er ingrédient
 ⠀
-• 2ème ingrédient sur sa propre ligne
+• 2ème ingrédient
 ⠀
-• 3ème ingrédient sur sa propre ligne
+• Dernier ingrédient
 ⠀
+⠀
+(<- Ici il y a DEUX lignes vides pour séparer la fin de liste du titre suivant)
 ### 👨‍🍳 **PRÉPARATION**
 ⠀
-1️⃣ **Préparation**
+1️⃣ **Étape 1**
 ⠀
-1. **Mélangez** la farine.
+1. **Action** précise.
 ⠀
-2. **Ajoutez** les œufs.
+2. **Action** précise.
 ⠀
-2️⃣ **Cuisson**
-⠀
-1. **Enfournez** pour 30 min.
 ⠀
 ### 💡 **CONSEIL**
-Dégustez chaud !`
+Dernière phrase.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
