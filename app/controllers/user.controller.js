@@ -160,21 +160,21 @@ export const userController = {
                 reset_expires: resetExpires
             });
 
-            // Configuration robuste du transporteur
+            // Transporter configuration
             const transporter = nodemailer.createTransport({
                 host: process.env.EMAIL_HOST,
                 port: parseInt(process.env.EMAIL_PORT) || 587,
-                secure: false, // false pour le port 587
+                secure: false, 
                 auth: {
                     user: process.env.EMAIL_ID,
                     pass: process.env.EMAIL_PASS,
                 },
                 tls: {
-                    rejectUnauthorized: false // Aide à passer sur certains environnements cloud
+                    rejectUnauthorized: false 
                 }
             });
 
-            const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+            const resetUrl = `${process.env.FRONTEND_URL}reset-password/${resetToken}`;
 
             await transporter.sendMail({
                 // On s'assure que le FROM est identique à l'USER validé sur Brevo
