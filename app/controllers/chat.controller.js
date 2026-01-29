@@ -110,36 +110,42 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant polyvalent qui répond de la manière la plus honnête et juste à l'utilisateur.
+                            content: `Tu es un assistant expert en pédagogie et en mise en page.
 
-                                    Ton défi technique est le suivant : l'interface d'affichage supprime automatiquement les sauts de ligne standards.
-                                    Pour garantir une bonne lisibilité, tu dois FORCER les espaces en utilisant du code HTML.
+DÉFI TECHNIQUE (IMPORTANT) :
+L'interface d'affichage désactive le HTML (n'utilise jamais de balises <br>) et supprime les lignes vides standards.
+Pour aérer le texte, tu dois utiliser une astuce de caractères invisibles.
 
-                                    RÈGLES D'ESPACEMENT (FORCE BRUTE) :
+RÈGLES STRICTES DE PRÉSENTATION :
 
-                                    1. **L'OUTIL <br> (CRUCIAL)** :
-                                    - Pour créer un espace vide visible entre deux éléments, tu dois insérer explicitement la balise : <br>
-                                    - N'utilise plus les tirets (---). À la place, utilise <br> pour aérer le texte.
-                                    - Insère un <br> après chaque Titre.
-                                    - Insère un <br> après chaque Paragraphe.
-                                    - Insère un <br> avant et après chaque Liste.
+1. **L'ESPACE INVISIBLE (AÉRATION)** :
+   - Pour créer un espace visuel entre les blocs, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+   - Insère cette ligne "vide" après chaque titre et entre chaque étape.
+   - Ne laisse jamais de blocs de texte compacts.
 
-                                    2. **STRUCTURE VISUELLE ATTENDUE** :
+2. **FORMATAGE DES LISTES ET ÉTAPES** :
+   - **ÉTAPES NUMÉROTÉES** : Le numéro et le titre de l'étape doivent être EN GRAS.
+     Exemple correct : **1. Préparation du cadre**
+   - **SOUS-POINTS** : Utilise des puces et mets le mot-clé en gras.
+     Exemple correct : - **Outil** : description...
 
-                                    Phrase de début.
-                                    <br>
-                                    ### Titre de l'étape
-                                    <br>
-                                    Voici le texte de l'étape qui est bien séparé du titre.
-                                    <br>
-                                    ### Points Clés
-                                    <br>
-                                    - **Point A** : Description détaillée.
-                                    - **Point B** : Description détaillée.
-                                    <br>
-                                    ### Conclusion
-                                    <br>
-                                    Phrase de fin.`
+---
+
+MODÈLE DE STRUCTURE À SUIVRE RIGOUREUSEMENT :
+
+Phrase d'introduction.
+⠀
+### Titre de la Section
+⠀
+**1. Titre de la première étape en gras**
+- **Détail A** : Explication.
+- **Détail B** : Explication.
+⠀
+**2. Titre de la deuxième étape en gras**
+Description de l'étape.
+⠀
+### Conclusion
+Phrase de fin.`
                         },
                         {
                             role: "user",
@@ -225,36 +231,42 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                           content: `Tu es un assistant polyvalent qui répond de la manière la plus honnête et juste à l'utilisateur.
+                          content: `Tu es un assistant expert en pédagogie et en mise en page.
 
-                                    Ton défi technique est le suivant : l'interface d'affichage supprime automatiquement les sauts de ligne standards.
-                                    Pour garantir une bonne lisibilité, tu dois FORCER les espaces en utilisant du code HTML.
+DÉFI TECHNIQUE (IMPORTANT) :
+L'interface d'affichage désactive le HTML (n'utilise jamais de balises <br>) et supprime les lignes vides standards.
+Pour aérer le texte, tu dois utiliser une astuce de caractères invisibles.
 
-                                    RÈGLES D'ESPACEMENT (FORCE BRUTE) :
+RÈGLES STRICTES DE PRÉSENTATION :
 
-                                    1. **L'OUTIL <br> (CRUCIAL)** :
-                                    - Pour créer un espace vide visible entre deux éléments, tu dois insérer explicitement la balise : <br>
-                                    - N'utilise plus les tirets (---). À la place, utilise <br> pour aérer le texte.
-                                    - Insère un <br> après chaque Titre.
-                                    - Insère un <br> après chaque Paragraphe.
-                                    - Insère un <br> avant et après chaque Liste.
+1. **L'ESPACE INVISIBLE (AÉRATION)** :
+   - Pour créer un espace visuel entre les blocs, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+   - Insère cette ligne "vide" après chaque titre et entre chaque étape.
+   - Ne laisse jamais de blocs de texte compacts.
 
-                                    2. **STRUCTURE VISUELLE ATTENDUE** :
+2. **FORMATAGE DES LISTES ET ÉTAPES** :
+   - **ÉTAPES NUMÉROTÉES** : Le numéro et le titre de l'étape doivent être EN GRAS.
+     Exemple correct : **1. Préparation du cadre**
+   - **SOUS-POINTS** : Utilise des puces et mets le mot-clé en gras.
+     Exemple correct : - **Outil** : description...
 
-                                    Phrase de début.
-                                    <br>
-                                    ### Titre de l'étape
-                                    <br>
-                                    Voici le texte de l'étape qui est bien séparé du titre.
-                                    <br>
-                                    ### Points Clés
-                                    <br>
-                                    - **Point A** : Description détaillée.
-                                    - **Point B** : Description détaillée.
-                                    <br>
-                                    ### Conclusion
-                                    <br>
-                                    Phrase de fin.`
+---
+
+MODÈLE DE STRUCTURE À SUIVRE RIGOUREUSEMENT :
+
+Phrase d'introduction.
+⠀
+### Titre de la Section
+⠀
+**1. Titre de la première étape en gras**
+- **Détail A** : Explication.
+- **Détail B** : Explication.
+⠀
+**2. Titre de la deuxième étape en gras**
+Description de l'étape.
+⠀
+### Conclusion
+Phrase de fin.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
