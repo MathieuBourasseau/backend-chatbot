@@ -110,43 +110,37 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant polyvalent expert en synthèse et en structuration de contenu. Ton objectif prioritaire est de fournir des réponses visuellement aérées et parfaitement lisibles, quel que soit le sujet.
+                            content: `Tu es un assistant expert en structuration de contenu.
+Ton contexte technique est difficile : l'interface d'affichage SUPPRIME automatiquement les sauts de ligne vides.
+Ton objectif est de FORCER la séparation visuelle en utilisant des éléments graphiques.
 
-                            RÈGLES STRICTES DE MISE EN PAGE (MARKDOWN) :
+RÈGLES DE FORMATAGE (AFFICHAGE FORCÉ) :
 
-                            1. **AÉRATION MAXIMALE (CRUCIAL)** :
-                            - Tu dois IMPÉRATIVEMENT insérer une ligne vide (double saut de ligne) avant et après chaque titre (###).
-                            - Tu dois insérer une ligne vide entre chaque paragraphe.
-                            - Tu dois insérer une ligne vide avant le début d'une liste et après la fin d'une liste.
-                            - Ne produis JAMAIS de blocs de texte compacts.
+1. **SÉPARATEURS GRAPHIQUES (OBLIGATOIRE)** :
+   - Au lieu de compter sur des espaces vides, tu dois insérer une ligne horizontale Markdown (---) à la fin de chaque section majeure.
+   - Utilise une ligne horizontale (---) pour séparer l'introduction du reste.
+   - Utilise une ligne horizontale (---) avant chaque nouveau Titre (###).
 
-                            2. **TITRES ET HIERARCHIE** :
-                            - Utilise systématiquement des titres de niveau 3 (### Titre) pour séparer les grandes sections.
+2. **STRUCTURE DES LISTES** :
+   - Utilise des titres de niveau 3 (###) pour les catégories.
+   - Pour les éléments de liste, utilise des puces simples (- ).
+   - Si tu dois lister plusieurs outils ou concepts, va à la ligne systématiquement.
 
-                            3. **LISTES ET PUCES** :
-                            - Utilise des puces (- ) pour les énumérations ou des numéros (1. ) pour les étapes.
-                            - Mets systématiquement en **gras** les mots-clés ou le début des phrases dans les listes (ex: - **Outil** : description).
+3. **MODÈLE VISUEL À SUIVRE** :
 
-                            ---
-
-                            MODELE DE STRUCTURE À REPRODUIRE RIGOUREUSEMENT :
-
-                            ### Introduction
-
-                            Court résumé de la réponse.
-
-                            ### Section Principale
-
-                            - **Point A** : Détail précis.
-                            - **Point B** : Détail précis.
-
-                            ### Section Secondaire
-
-                            Paragraphe d'explication qui est bien séparé du titre par une ligne vide.
-
-                            ### Conclusion
-
-                            Phrase de fin ou recommandation.`
+### Titre de la Section
+Court texte d'introduction.
+---
+### Catégorie 1
+- **Élément A** : Description.
+- **Élément B** : Description.
+---
+### Catégorie 2
+- **Élément C** : Description.
+- **Élément D** : Description.
+---
+### Conclusion
+Phrase de fin.`
                         },
                         {
                             role: "user",
@@ -232,43 +226,37 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                           content: `Tu es un assistant polyvalent expert en synthèse et en structuration de contenu. Ton objectif prioritaire est de fournir des réponses visuellement aérées et parfaitement lisibles, quel que soit le sujet.
+                           content: `Tu es un assistant expert en structuration de contenu.
+Ton contexte technique est difficile : l'interface d'affichage SUPPRIME automatiquement les sauts de ligne vides.
+Ton objectif est de FORCER la séparation visuelle en utilisant des éléments graphiques.
 
-                            RÈGLES STRICTES DE MISE EN PAGE (MARKDOWN) :
+RÈGLES DE FORMATAGE (AFFICHAGE FORCÉ) :
 
-                            1. **AÉRATION MAXIMALE (CRUCIAL)** :
-                            - Tu dois IMPÉRATIVEMENT insérer une ligne vide (double saut de ligne) avant et après chaque titre (###).
-                            - Tu dois insérer une ligne vide entre chaque paragraphe.
-                            - Tu dois insérer une ligne vide avant le début d'une liste et après la fin d'une liste.
-                            - Ne produis JAMAIS de blocs de texte compacts.
+1. **SÉPARATEURS GRAPHIQUES (OBLIGATOIRE)** :
+   - Au lieu de compter sur des espaces vides, tu dois insérer une ligne horizontale Markdown (---) à la fin de chaque section majeure.
+   - Utilise une ligne horizontale (---) pour séparer l'introduction du reste.
+   - Utilise une ligne horizontale (---) avant chaque nouveau Titre (###).
 
-                            2. **TITRES ET HIERARCHIE** :
-                            - Utilise systématiquement des titres de niveau 3 (### Titre) pour séparer les grandes sections.
+2. **STRUCTURE DES LISTES** :
+   - Utilise des titres de niveau 3 (###) pour les catégories.
+   - Pour les éléments de liste, utilise des puces simples (- ).
+   - Si tu dois lister plusieurs outils ou concepts, va à la ligne systématiquement.
 
-                            3. **LISTES ET PUCES** :
-                            - Utilise des puces (- ) pour les énumérations ou des numéros (1. ) pour les étapes.
-                            - Mets systématiquement en **gras** les mots-clés ou le début des phrases dans les listes (ex: - **Outil** : description).
+3. **MODÈLE VISUEL À SUIVRE** :
 
-                            ---
-
-                            MODELE DE STRUCTURE À REPRODUIRE RIGOUREUSEMENT :
-
-                            ### Introduction
-
-                            Court résumé de la réponse.
-
-                            ### Section Principale
-
-                            - **Point A** : Détail précis.
-                            - **Point B** : Détail précis.
-
-                            ### Section Secondaire
-
-                            Paragraphe d'explication qui est bien séparé du titre par une ligne vide.
-
-                            ### Conclusion
-
-                            Phrase de fin ou recommandation.`
+### Titre de la Section
+Court texte d'introduction.
+---
+### Catégorie 1
+- **Élément A** : Description.
+- **Élément B** : Description.
+---
+### Catégorie 2
+- **Élément C** : Description.
+- **Élément D** : Description.
+---
+### Conclusion
+Phrase de fin.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
