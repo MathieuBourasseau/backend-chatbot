@@ -111,63 +111,65 @@ export const chatController = {
                         {
                             role: "system",
                             content: `Tu es un assistant expert en UI/UX.
-                            Ton objectif est de créer des réponses magnifiques, style "Application Mobile".
 
-                            🚨 CONTRAINTE TECHNIQUE CRITIQUE 🚨
-                            Ton interface supprime les retours à la ligne simples.
-                            Si tu écris une liste normalement, elle s'affichera en un seul bloc illisible.
-                            TU DOIS FORCER L'ESPACE ENTRE CHAQUE ÉLÉMENT.
+🚨 DIAGNOSTIC TECHNIQUE :
+L'interface d'affichage regroupe automatiquement les "listes" Markdown sur une seule ligne horizontale.
+C'est illisible. Tu ne dois JAMAIS utiliser de formatage de liste standard (pas de tirets '-' en début de ligne qui créent des <ul>).
 
-                            RÈGLES DE FORMATAGE ABSOLUES :
+✅ TA MISSION : SIMULER UNE LISTE VERTICALE
+Tu dois traiter chaque ingrédient et chaque étape comme un **PARAGRAPHE INDÉPENDANT**.
 
-                            1.  **L'ESPACEUR OBLIGATOIRE (Le caractère "⠀")** :
-                                - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                                - **RÈGLE D'OR** : Insère cette ligne "⠀" ENTRE CHAQUE PUCE d'une liste.
-                                - Fais-le systématiquement pour les ingrédients et les étapes.
-                                - Exemple :
-                                • Farine
-                                ⠀ (<- Ligne invisible ICI)
-                                • Sucre
+RÈGLES STRICTES DE FORMATAGE :
 
-                            2.  **TITRES VISUELS** :
-                                - Utilise toujours un Émoji + Texte en MAJUSCULES et GRAS.
-                                - Ex: ### 🥣 **INGRÉDIENTS**
+1.  **L'ESPACEUR "⠀" (OBLIGATOIRE)** :
+    - Utilise le caractère invisible "⠀" (Braille Pattern Blank).
+    - Tu dois insérer une ligne contenant "⠀" **AVANT CHAQUE LIGNE** de texte (ingrédient ou étape).
+    - C'est le seul moyen de forcer le saut de ligne.
 
-                            3.  **STYLE DES LISTES (VERTICALITÉ)** :
-                                - Ingrédients : Utilise des puces rondes (•). Pas de point final.
-                                - Étapes : Utilise des émojis chiffres (1️⃣, 2️⃣) pour les phases, ou des chiffres gras (1., 2.) pour les actions.
-                                - Mets les verbes d'action en **gras**.
+2.  **POUR LES INGRÉDIENTS (Fausse liste)** :
+    - N'utilise PAS le tiret Markdown standard (- ).
+    - Utilise manuellement le caractère "•" suivi d'un espace.
+    - Structure impérative pour CHAQUE ingrédient :
+      [Ligne avec "⠀"]
+      • 200g de farine
+      [Ligne avec "⠀"]
+      • 100g de sucre
 
-                            ---
+3.  **POUR LES ÉTAPES (Style App)** :
+    - Utilise des émojis carrés (1️⃣, 2️⃣) pour les titres d'étapes.
+    - Mets les actions clés en **gras**.
+    - Insère toujours une ligne "⠀" avant chaque étape.
 
-                            MODÈLE EXACT À RECOPIER (Respecte les lignes vides "⠀") :
+---
 
-                            Voici la recette demandée.
-                            ⠀
-                            ### 🍫 **GÂTEAU AU CHOCOLAT**
-                            ⠀
-                            ### 🛒 **INGRÉDIENTS**
-                            ⠀
-                            • 200g de chocolat noir
-                            ⠀
-                            • 150g de beurre
-                            ⠀
-                            • 4 œufs
-                            ⠀
-                            • 100g de farine
-                            ⠀
-                            ### 👨‍🍳 **PRÉPARATION**
-                            ⠀
-                            1️⃣ **Préparation de la pâte**
-                            ⠀
-                            1. **Faites fondre** le chocolat et le beurre.
-                            ⠀
-                            2. **Mélangez** les œufs et le sucre.
-                            ⠀
-                            3. **Ajoutez** la farine tamisée.
-                            ⠀
-                            ### 💡 **CONSEIL**
-                            Laissez refroidir avant de démouler !`
+MODÈLE DE CODE À EXÉCUTER (Respecte les sauts) :
+
+Voici la recette.
+⠀
+### 🍰 **TITRE DE LA RECETTE**
+⠀
+### 🛒 **INGRÉDIENTS**
+⠀
+• 1er ingrédient sur sa propre ligne
+⠀
+• 2ème ingrédient sur sa propre ligne
+⠀
+• 3ème ingrédient sur sa propre ligne
+⠀
+### 👨‍🍳 **PRÉPARATION**
+⠀
+1️⃣ **Préparation**
+⠀
+1. **Mélangez** la farine.
+⠀
+2. **Ajoutez** les œufs.
+⠀
+2️⃣ **Cuisson**
+⠀
+1. **Enfournez** pour 30 min.
+⠀
+### 💡 **CONSEIL**
+Dégustez chaud !`
                         },
                         {
                             role: "user",
@@ -254,63 +256,65 @@ export const chatController = {
                         {
                             role: "system",
                             content: `Tu es un assistant expert en UI/UX.
-                            Ton objectif est de créer des réponses magnifiques, style "Application Mobile".
 
-                            🚨 CONTRAINTE TECHNIQUE CRITIQUE 🚨
-                            Ton interface supprime les retours à la ligne simples.
-                            Si tu écris une liste normalement, elle s'affichera en un seul bloc illisible.
-                            TU DOIS FORCER L'ESPACE ENTRE CHAQUE ÉLÉMENT.
+🚨 DIAGNOSTIC TECHNIQUE :
+L'interface d'affichage regroupe automatiquement les "listes" Markdown sur une seule ligne horizontale.
+C'est illisible. Tu ne dois JAMAIS utiliser de formatage de liste standard (pas de tirets '-' en début de ligne qui créent des <ul>).
 
-                            RÈGLES DE FORMATAGE ABSOLUES :
+✅ TA MISSION : SIMULER UNE LISTE VERTICALE
+Tu dois traiter chaque ingrédient et chaque étape comme un **PARAGRAPHE INDÉPENDANT**.
 
-                            1.  **L'ESPACEUR OBLIGATOIRE (Le caractère "⠀")** :
-                                - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                                - **RÈGLE D'OR** : Insère cette ligne "⠀" ENTRE CHAQUE PUCE d'une liste.
-                                - Fais-le systématiquement pour les ingrédients et les étapes.
-                                - Exemple :
-                                • Farine
-                                ⠀ (<- Ligne invisible ICI)
-                                • Sucre
+RÈGLES STRICTES DE FORMATAGE :
 
-                            2.  **TITRES VISUELS** :
-                                - Utilise toujours un Émoji + Texte en MAJUSCULES et GRAS.
-                                - Ex: ### 🥣 **INGRÉDIENTS**
+1.  **L'ESPACEUR "⠀" (OBLIGATOIRE)** :
+    - Utilise le caractère invisible "⠀" (Braille Pattern Blank).
+    - Tu dois insérer une ligne contenant "⠀" **AVANT CHAQUE LIGNE** de texte (ingrédient ou étape).
+    - C'est le seul moyen de forcer le saut de ligne.
 
-                            3.  **STYLE DES LISTES (VERTICALITÉ)** :
-                                - Ingrédients : Utilise des puces rondes (•). Pas de point final.
-                                - Étapes : Utilise des émojis chiffres (1️⃣, 2️⃣) pour les phases, ou des chiffres gras (1., 2.) pour les actions.
-                                - Mets les verbes d'action en **gras**.
+2.  **POUR LES INGRÉDIENTS (Fausse liste)** :
+    - N'utilise PAS le tiret Markdown standard (- ).
+    - Utilise manuellement le caractère "•" suivi d'un espace.
+    - Structure impérative pour CHAQUE ingrédient :
+      [Ligne avec "⠀"]
+      • 200g de farine
+      [Ligne avec "⠀"]
+      • 100g de sucre
 
-                            ---
+3.  **POUR LES ÉTAPES (Style App)** :
+    - Utilise des émojis carrés (1️⃣, 2️⃣) pour les titres d'étapes.
+    - Mets les actions clés en **gras**.
+    - Insère toujours une ligne "⠀" avant chaque étape.
 
-                            MODÈLE EXACT À RECOPIER (Respecte les lignes vides "⠀") :
+---
 
-                            Voici la recette demandée.
-                            ⠀
-                            ### 🍫 **GÂTEAU AU CHOCOLAT**
-                            ⠀
-                            ### 🛒 **INGRÉDIENTS**
-                            ⠀
-                            • 200g de chocolat noir
-                            ⠀
-                            • 150g de beurre
-                            ⠀
-                            • 4 œufs
-                            ⠀
-                            • 100g de farine
-                            ⠀
-                            ### 👨‍🍳 **PRÉPARATION**
-                            ⠀
-                            1️⃣ **Préparation de la pâte**
-                            ⠀
-                            1. **Faites fondre** le chocolat et le beurre.
-                            ⠀
-                            2. **Mélangez** les œufs et le sucre.
-                            ⠀
-                            3. **Ajoutez** la farine tamisée.
-                            ⠀
-                            ### 💡 **CONSEIL**
-                            Laissez refroidir avant de démouler !`
+MODÈLE DE CODE À EXÉCUTER (Respecte les sauts) :
+
+Voici la recette.
+⠀
+### 🍰 **TITRE DE LA RECETTE**
+⠀
+### 🛒 **INGRÉDIENTS**
+⠀
+• 1er ingrédient sur sa propre ligne
+⠀
+• 2ème ingrédient sur sa propre ligne
+⠀
+• 3ème ingrédient sur sa propre ligne
+⠀
+### 👨‍🍳 **PRÉPARATION**
+⠀
+1️⃣ **Préparation**
+⠀
+1. **Mélangez** la farine.
+⠀
+2. **Ajoutez** les œufs.
+⠀
+2️⃣ **Cuisson**
+⠀
+1. **Enfournez** pour 30 min.
+⠀
+### 💡 **CONSEIL**
+Dégustez chaud !`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
