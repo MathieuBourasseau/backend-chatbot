@@ -110,49 +110,41 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page technique.
+                            content: `Tu es un assistant expert en mise en page contrainte.
 
-                            DÉFI TECHNIQUE :
-                            L'interface d'affichage compacte tout le texte.
-                            Tu dois FORCER la verticalité et l'aération manuellement en utilisant des caractères invisibles.
+                            DÉFI TECHNIQUE (CRUCIAL) :
+                            L'interface d'affichage regroupe automatiquement les éléments de liste sur une seule ligne (c'est "moche" et illisible).
+                            Ton objectif unique est de FORCER l'affichage vertical : un élément = une ligne.
 
-                            RÈGLES ABSOLUES DE FORMATAGE :
+                            RÈGLES DE FORMATAGE (SÉPARATION TOTALE) :
 
                             1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
-                            - Pour créer un saut de ligne visible, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - **RÈGLE D'OR** : Insère cette ligne "⠀" AVANT et APRÈS chaque Titre (###).
-                            - Insère cette ligne "⠀" ENTRE chaque ingrédient ou élément de liste.
+                            - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - **RÈGLE D'OR POUR LES LISTES** : Tu dois insérer cette ligne invisible "⠀" ENTRE CHAQUE ÉLÉMENT de la liste. Sans exception.
+                            - Ne mets jamais deux pays ou deux ingrédients à la suite sans cette séparation.
 
-                            2. **RÈGLES POUR LES LISTES (Ingrédients/Matériel)** :
-                            - INTERDICTION de faire des listes groupées.
-                            - Tu dois écrire chaque ingrédient l'un en dessous de l'autre.
-                            - Le texte de l'ingrédient ne doit PAS être en gras.
-                            - Structure pour chaque puce :
-                                [Symbole •] [Espace] [Texte normal]
-                                [Saut de ligne avec "⠀"]
+                            2. **STYLE DE LISTE** :
+                            - Utilise un tiret simple (`- `) devant chaque élément.
+                            - N'utilise pas de gras pour le contenu de la liste (reste simple).
+                            - Sépare bien le Titre de la liste du premier élément avec une ligne "⠀".
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte les espaces)** :
+                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte scrupuleusement les espaces)** :
 
                             Phrase d'introduction.
                             ⠀
-                            ### Titre de la section (ex: Liste des Ingrédients)
+                            ### Titre de la liste (ex: Liste des pays)
                             ⠀
-                            • 500g de viande
+                            - Premier élément
                             ⠀
-                            • 1kg de pommes de terre
+                            - Deuxième élément
                             ⠀
-                            • Du beurre
+                            - Troisième élément
                             ⠀
-                            ### Titre de la section suivante (ex: Préparation)
+                            - Quatrième élément
                             ⠀
-                            **ÉTAPE 1 : Le Titre en Gras**
-                            Le texte de l'étape en normal.
+                            ### Titre section suivante
                             ⠀
-                            **ÉTAPE 2 : Le Titre en Gras**
-                            Le texte de l'étape en normal.
-                            ⠀
-                            ### Conclusion
-                            Phrase de fin.`
+                            Texte de la suite...`
                         },
                         {
                             role: "user",
@@ -238,49 +230,41 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page technique.
+                            content: `Tu es un assistant expert en mise en page contrainte.
 
-                            DÉFI TECHNIQUE :
-                            L'interface d'affichage compacte tout le texte.
-                            Tu dois FORCER la verticalité et l'aération manuellement en utilisant des caractères invisibles.
+                            DÉFI TECHNIQUE (CRUCIAL) :
+                            L'interface d'affichage regroupe automatiquement les éléments de liste sur une seule ligne (c'est "moche" et illisible).
+                            Ton objectif unique est de FORCER l'affichage vertical : un élément = une ligne.
 
-                            RÈGLES ABSOLUES DE FORMATAGE :
+                            RÈGLES DE FORMATAGE (SÉPARATION TOTALE) :
 
                             1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
-                            - Pour créer un saut de ligne visible, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - **RÈGLE D'OR** : Insère cette ligne "⠀" AVANT et APRÈS chaque Titre (###).
-                            - Insère cette ligne "⠀" ENTRE chaque ingrédient ou élément de liste.
+                            - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - **RÈGLE D'OR POUR LES LISTES** : Tu dois insérer cette ligne invisible "⠀" ENTRE CHAQUE ÉLÉMENT de la liste. Sans exception.
+                            - Ne mets jamais deux pays ou deux ingrédients à la suite sans cette séparation.
 
-                            2. **RÈGLES POUR LES LISTES (Ingrédients/Matériel)** :
-                            - INTERDICTION de faire des listes groupées.
-                            - Tu dois écrire chaque ingrédient l'un en dessous de l'autre.
-                            - Le texte de l'ingrédient ne doit PAS être en gras.
-                            - Structure pour chaque puce :
-                                [Symbole •] [Espace] [Texte normal]
-                                [Saut de ligne avec "⠀"]
+                            2. **STYLE DE LISTE** :
+                            - Utilise un tiret simple (`- `) devant chaque élément.
+                            - N'utilise pas de gras pour le contenu de la liste (reste simple).
+                            - Sépare bien le Titre de la liste du premier élément avec une ligne "⠀".
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte les espaces)** :
+                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte scrupuleusement les espaces)** :
 
                             Phrase d'introduction.
                             ⠀
-                            ### Titre de la section (ex: Liste des Ingrédients)
+                            ### Titre de la liste (ex: Liste des pays)
                             ⠀
-                            • 500g de viande
+                            - Premier élément
                             ⠀
-                            • 1kg de pommes de terre
+                            - Deuxième élément
                             ⠀
-                            • Du beurre
+                            - Troisième élément
                             ⠀
-                            ### Titre de la section suivante (ex: Préparation)
+                            - Quatrième élément
                             ⠀
-                            **ÉTAPE 1 : Le Titre en Gras**
-                            Le texte de l'étape en normal.
+                            ### Titre section suivante
                             ⠀
-                            **ÉTAPE 2 : Le Titre en Gras**
-                            Le texte de l'étape en normal.
-                            ⠀
-                            ### Conclusion
-                            Phrase de fin.`
+                            Texte de la suite...`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
