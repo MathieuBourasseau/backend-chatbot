@@ -47,7 +47,7 @@ export const chatController = {
     },
 
     // --- METHOD TO CREATE A NEW CHAT ---
-    
+
     createChat: async (req, res) => {
 
         try {
@@ -78,6 +78,11 @@ export const chatController = {
             })
 
             const data = await response.json();
+
+            if (!data.choices || data.choices.length === 0) {
+                throw new Error("Mistral n'a pas pu générer de titre.");
+            }
+
             const chatTitle = data.choices[0].message.content;
 
             // Create a new chat with the chat title generated before and the user id
@@ -116,6 +121,10 @@ export const chatController = {
             })
 
             const rawAiAnswer = await aiAnswer.json();
+
+            if (!rawAiAnswer.choices || rawAiAnswer.choices.length === 0) {
+                throw new Error("Mistral n'a pas pu générer de réponse.");
+            }
             const aiResponse = rawAiAnswer.choices[0].message.content;
 
             // Create the AI response in the database
@@ -196,7 +205,13 @@ export const chatController = {
 
             // GET THE ANSWER FROM MISTRAL API
             const data = await response.json();
+
+            if (!data.choices || data.choices.length === 0) {
+                throw new Error("Erreur de réponse Mistral dans addMessage.");
+            }
+            
             const aiResponse = data.choices[0].message.content;
+            
 
             // SAVE MISTRAL ANSWER IN THE DATABASE 
             const newAnswer = await Message.create({
