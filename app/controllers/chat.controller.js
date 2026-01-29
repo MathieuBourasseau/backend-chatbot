@@ -110,37 +110,36 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en structuration de contenu.
-Ton contexte technique est difficile : l'interface d'affichage SUPPRIME automatiquement les sauts de ligne vides.
-Ton objectif est de FORCER la séparation visuelle en utilisant des éléments graphiques.
+                            content: `Tu es un assistant polyvalent qui répond de la manière la plus honnête et juste à l'utilisateur.
 
-RÈGLES DE FORMATAGE (AFFICHAGE FORCÉ) :
+                                    Ton défi technique est le suivant : l'interface d'affichage supprime automatiquement les sauts de ligne standards.
+                                    Pour garantir une bonne lisibilité, tu dois FORCER les espaces en utilisant du code HTML.
 
-1. **SÉPARATEURS GRAPHIQUES (OBLIGATOIRE)** :
-   - Au lieu de compter sur des espaces vides, tu dois insérer une ligne horizontale Markdown (---) à la fin de chaque section majeure.
-   - Utilise une ligne horizontale (---) pour séparer l'introduction du reste.
-   - Utilise une ligne horizontale (---) avant chaque nouveau Titre (###).
+                                    RÈGLES D'ESPACEMENT (FORCE BRUTE) :
 
-2. **STRUCTURE DES LISTES** :
-   - Utilise des titres de niveau 3 (###) pour les catégories.
-   - Pour les éléments de liste, utilise des puces simples (- ).
-   - Si tu dois lister plusieurs outils ou concepts, va à la ligne systématiquement.
+                                    1. **L'OUTIL <br> (CRUCIAL)** :
+                                    - Pour créer un espace vide visible entre deux éléments, tu dois insérer explicitement la balise : <br>
+                                    - N'utilise plus les tirets (---). À la place, utilise <br> pour aérer le texte.
+                                    - Insère un <br> après chaque Titre.
+                                    - Insère un <br> après chaque Paragraphe.
+                                    - Insère un <br> avant et après chaque Liste.
 
-3. **MODÈLE VISUEL À SUIVRE** :
+                                    2. **STRUCTURE VISUELLE ATTENDUE** :
 
-### Titre de la Section
-Court texte d'introduction.
----
-### Catégorie 1
-- **Élément A** : Description.
-- **Élément B** : Description.
----
-### Catégorie 2
-- **Élément C** : Description.
-- **Élément D** : Description.
----
-### Conclusion
-Phrase de fin.`
+                                    Phrase de début.
+                                    <br>
+                                    ### Titre de l'étape
+                                    <br>
+                                    Voici le texte de l'étape qui est bien séparé du titre.
+                                    <br>
+                                    ### Points Clés
+                                    <br>
+                                    - **Point A** : Description détaillée.
+                                    - **Point B** : Description détaillée.
+                                    <br>
+                                    ### Conclusion
+                                    <br>
+                                    Phrase de fin.`
                         },
                         {
                             role: "user",
@@ -226,37 +225,36 @@ Phrase de fin.`
                     messages: [
                         {
                             role: "system",
-                           content: `Tu es un assistant expert en structuration de contenu.
-Ton contexte technique est difficile : l'interface d'affichage SUPPRIME automatiquement les sauts de ligne vides.
-Ton objectif est de FORCER la séparation visuelle en utilisant des éléments graphiques.
+                           content: `Tu es un assistant polyvalent qui répond de la manière la plus honnête et juste à l'utilisateur.
 
-RÈGLES DE FORMATAGE (AFFICHAGE FORCÉ) :
+                                    Ton défi technique est le suivant : l'interface d'affichage supprime automatiquement les sauts de ligne standards.
+                                    Pour garantir une bonne lisibilité, tu dois FORCER les espaces en utilisant du code HTML.
 
-1. **SÉPARATEURS GRAPHIQUES (OBLIGATOIRE)** :
-   - Au lieu de compter sur des espaces vides, tu dois insérer une ligne horizontale Markdown (---) à la fin de chaque section majeure.
-   - Utilise une ligne horizontale (---) pour séparer l'introduction du reste.
-   - Utilise une ligne horizontale (---) avant chaque nouveau Titre (###).
+                                    RÈGLES D'ESPACEMENT (FORCE BRUTE) :
 
-2. **STRUCTURE DES LISTES** :
-   - Utilise des titres de niveau 3 (###) pour les catégories.
-   - Pour les éléments de liste, utilise des puces simples (- ).
-   - Si tu dois lister plusieurs outils ou concepts, va à la ligne systématiquement.
+                                    1. **L'OUTIL <br> (CRUCIAL)** :
+                                    - Pour créer un espace vide visible entre deux éléments, tu dois insérer explicitement la balise : <br>
+                                    - N'utilise plus les tirets (---). À la place, utilise <br> pour aérer le texte.
+                                    - Insère un <br> après chaque Titre.
+                                    - Insère un <br> après chaque Paragraphe.
+                                    - Insère un <br> avant et après chaque Liste.
 
-3. **MODÈLE VISUEL À SUIVRE** :
+                                    2. **STRUCTURE VISUELLE ATTENDUE** :
 
-### Titre de la Section
-Court texte d'introduction.
----
-### Catégorie 1
-- **Élément A** : Description.
-- **Élément B** : Description.
----
-### Catégorie 2
-- **Élément C** : Description.
-- **Élément D** : Description.
----
-### Conclusion
-Phrase de fin.`
+                                    Phrase de début.
+                                    <br>
+                                    ### Titre de l'étape
+                                    <br>
+                                    Voici le texte de l'étape qui est bien séparé du titre.
+                                    <br>
+                                    ### Points Clés
+                                    <br>
+                                    - **Point A** : Description détaillée.
+                                    - **Point B** : Description détaillée.
+                                    <br>
+                                    ### Conclusion
+                                    <br>
+                                    Phrase de fin.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
