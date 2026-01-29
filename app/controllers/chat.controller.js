@@ -110,41 +110,35 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page contrainte.
+                            content: `Tu es un assistant expert en mise en page.
 
-                            DÉFI TECHNIQUE (CRUCIAL) :
-                            L'interface d'affichage regroupe automatiquement les éléments de liste sur une seule ligne (c'est "moche" et illisible).
-                            Ton objectif unique est de FORCER l'affichage vertical : un élément = une ligne.
+                            DÉFI TECHNIQUE :
+                            L'interface regroupe les listes horizontalement.
+                            Ton objectif est de FORCER l'affichage vertical : un élément = une ligne.
 
-                            RÈGLES DE FORMATAGE (SÉPARATION TOTALE) :
+                            RÈGLES DE FORMATAGE SIMPLIFIÉES :
 
-                            1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
-                            - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - **RÈGLE D'OR POUR LES LISTES** : Tu dois insérer cette ligne invisible "⠀" ENTRE CHAQUE ÉLÉMENT de la liste. Sans exception.
-                            - Ne mets jamais deux pays ou deux ingrédients à la suite sans cette séparation.
+                            1. **LISTE VERTICALE FORCÉE** :
+                            - Pour chaque liste (pays, ingrédients...), tu ne dois JAMAIS mettre les éléments à la suite.
+                            - Tu dois insérer DEUX sauts de ligne (\n\n) entre chaque élément de la liste.
+                            - Utilise un tiret (- ) devant chaque élément.
 
-                            2. **STYLE DE LISTE** :
-                            - Utilise un tiret simple (`- `) devant chaque élément.
-                            - N'utilise pas de gras pour le contenu de la liste (reste simple).
-                            - Sépare bien le Titre de la liste du premier élément avec une ligne "⠀".
+                            2. **ASTUCE VISUELLE (Si les sauts de ligne sautent)** :
+                            - Si l'interface supprime le vide, insère un point unique isolé "." sur la ligne entre deux éléments pour forcer l'espace, ou une ligne de tirets très courte " -- ".
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte scrupuleusement les espaces)** :
+                            3. **MODÈLE DE STRUCTURE** :
 
-                            Phrase d'introduction.
-                            ⠀
-                            ### Titre de la liste (ex: Liste des pays)
-                            ⠀
+                            Introduction...
+
+                            ### Titre de la liste
+
                             - Premier élément
-                            ⠀
+                            .
                             - Deuxième élément
-                            ⠀
+                            .
                             - Troisième élément
-                            ⠀
-                            - Quatrième élément
-                            ⠀
-                            ### Titre section suivante
-                            ⠀
-                            Texte de la suite...`
+
+                            ### Conclusion`
                         },
                         {
                             role: "user",
@@ -230,41 +224,35 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page contrainte.
+                            content: `Tu es un assistant expert en mise en page.
 
-                            DÉFI TECHNIQUE (CRUCIAL) :
-                            L'interface d'affichage regroupe automatiquement les éléments de liste sur une seule ligne (c'est "moche" et illisible).
-                            Ton objectif unique est de FORCER l'affichage vertical : un élément = une ligne.
+                            DÉFI TECHNIQUE :
+                            L'interface regroupe les listes horizontalement.
+                            Ton objectif est de FORCER l'affichage vertical : un élément = une ligne.
 
-                            RÈGLES DE FORMATAGE (SÉPARATION TOTALE) :
+                            RÈGLES DE FORMATAGE SIMPLIFIÉES :
 
-                            1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
-                            - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - **RÈGLE D'OR POUR LES LISTES** : Tu dois insérer cette ligne invisible "⠀" ENTRE CHAQUE ÉLÉMENT de la liste. Sans exception.
-                            - Ne mets jamais deux pays ou deux ingrédients à la suite sans cette séparation.
+                            1. **LISTE VERTICALE FORCÉE** :
+                            - Pour chaque liste (pays, ingrédients...), tu ne dois JAMAIS mettre les éléments à la suite.
+                            - Tu dois insérer DEUX sauts de ligne (\n\n) entre chaque élément de la liste.
+                            - Utilise un tiret (- ) devant chaque élément.
 
-                            2. **STYLE DE LISTE** :
-                            - Utilise un tiret simple (`- `) devant chaque élément.
-                            - N'utilise pas de gras pour le contenu de la liste (reste simple).
-                            - Sépare bien le Titre de la liste du premier élément avec une ligne "⠀".
+                            2. **ASTUCE VISUELLE (Si les sauts de ligne sautent)** :
+                            - Si l'interface supprime le vide, insère un point unique isolé "." sur la ligne entre deux éléments pour forcer l'espace, ou une ligne de tirets très courte " -- ".
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte scrupuleusement les espaces)** :
+                            3. **MODÈLE DE STRUCTURE** :
 
-                            Phrase d'introduction.
-                            ⠀
-                            ### Titre de la liste (ex: Liste des pays)
-                            ⠀
+                            Introduction...
+
+                            ### Titre de la liste
+
                             - Premier élément
-                            ⠀
+                            .
                             - Deuxième élément
-                            ⠀
+                            .
                             - Troisième élément
-                            ⠀
-                            - Quatrième élément
-                            ⠀
-                            ### Titre section suivante
-                            ⠀
-                            Texte de la suite...`
+
+                            ### Conclusion`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
