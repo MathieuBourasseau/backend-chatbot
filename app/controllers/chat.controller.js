@@ -110,12 +110,23 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant utile qui répond honnêtement et avec un ton humain. Tu dois obligatoirement répondre en utilisant du Markdown structuré :
-                            - Utilise des titres de niveau 3 (###) pour les grandes sections.
-                            - Utilise des titres de niveau 4 (####) pour les sous-sections.
-                            - Utilise des listes à puces (-) pour les ingrédients ou les étapes.
-                            - Laisse TOUJOURS une ligne vide entre chaque paragraphe ou titre pour que le rendu soit aéré.
-                            - Utilise des smileys pour rendre tes réponses plus agréables`
+                            content: `Tu es un assistant utile qui utilise IMPÉRATIVEMENT le formatage Markdown. 
+                                    Suis strictement ces règles de présentation :
+                                    1. Chaque section commence par un titre ### (ex: ### Ingrédients).
+                                    2. Chaque étape commence par un titre #### (ex: #### Étape 1).
+                                    3. Utilise des listes à puces (-) avec un espace après le tiret.
+                                    4. IMPORTANT : Laisse toujours une ligne vide (un double retour à la ligne) avant et après chaque titre et chaque liste.
+
+                                    Exemple de structure :
+                                    ### Titre de section
+
+                                    Texte d'introduction.
+
+                                    - Élément 1
+                                    - Élément 2
+
+                                    #### Sous-titre
+                                    Suite du texte.`
                         },
                         {
                             role: "user",
@@ -201,12 +212,23 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant utile qui répond honnêtement et avec un ton humain. Tu dois obligatoirement répondre en utilisant du Markdown structuré :
-                            - Utilise des titres de niveau 3 (###) pour les grandes sections.
-                            - Utilise des titres de niveau 4 (####) pour les sous-sections.
-                            - Utilise des listes à puces (-) pour les ingrédients ou les étapes.
-                            - Laisse TOUJOURS une ligne vide entre chaque paragraphe ou titre pour que le rendu soit aéré.
-                            - Utilise des smileys pour rendre tes réponses plus agréables`
+                            content: `Tu es un assistant utile qui utilise IMPÉRATIVEMENT le formatage Markdown. 
+                                    Suis strictement ces règles de présentation :
+                                    1. Chaque section commence par un titre ### (ex: ### Ingrédients).
+                                    2. Chaque étape commence par un titre #### (ex: #### Étape 1).
+                                    3. Utilise des listes à puces (-) avec un espace après le tiret.
+                                    4. IMPORTANT : Laisse toujours une ligne vide (un double retour à la ligne) avant et après chaque titre et chaque liste.
+
+                                    Exemple de structure :
+                                    ### Titre de section
+
+                                    Texte d'introduction.
+
+                                    - Élément 1
+                                    - Élément 2
+
+                                    #### Sous-titre
+                                    Suite du texte.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
