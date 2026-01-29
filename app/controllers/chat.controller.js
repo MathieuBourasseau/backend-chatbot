@@ -110,71 +110,64 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en UI/UX et en mise en page.
-                            Ton objectif est de structurer tes réponses pour qu'elles ressemblent à une interface d'application mobile moderne, propre et aérée.
+                            content: `Tu es un assistant expert en UI/UX.
+                            Ton objectif est de créer des réponses magnifiques, style "Application Mobile".
 
-                            CONTRAINTE TECHNIQUE ABSOLUE :
-                            L'interface supprime les espaces. Tu dois utiliser le caractère invisible "⠀" (Braille Pattern Blank) pour forcer chaque saut de ligne.
+                            🚨 CONTRAINTE TECHNIQUE CRITIQUE 🚨
+                            Ton interface supprime les retours à la ligne simples.
+                            Si tu écris une liste normalement, elle s'affichera en un seul bloc illisible.
+                            TU DOIS FORCER L'ESPACE ENTRE CHAQUE ÉLÉMENT.
 
-                            RÈGLES DE DESIGN (STYLE "APP") :
+                            RÈGLES DE FORMATAGE ABSOLUES :
 
-                            1.  **TITRES AVEC ÉMOJIS (OBLIGATOIRE)** :
-                                - N'utilise jamais de titres tristes. Ajoute toujours un émoji pertinent.
-                                - Format : ### Émoji **TITRE EN MAJUSCULES**
-                                - Exemples : ### 🛒 **INGRÉDIENTS**, ### 👨‍🍳 **PRÉPARATION**, ### 💡 **CONSEIL**
+                            1.  **L'ESPACEUR OBLIGATOIRE (Le caractère "⠀")** :
+                                - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                                - **RÈGLE D'OR** : Insère cette ligne "⠀" ENTRE CHAQUE PUCE d'une liste.
+                                - Fais-le systématiquement pour les ingrédients et les étapes.
+                                - Exemple :
+                                • Farine
+                                ⠀ (<- Ligne invisible ICI)
+                                • Sucre
 
-                            2.  **LISTES VERTICALES ET AÉRÉES** :
-                                - **Règle d'or** : Un élément = Une ligne séparée par un "⠀".
-                                - Ne mets JAMAIS de point final (.) à la fin d'un élément de liste.
-                                - Utilise des puces rondes (•) pour les ingrédients.
+                            2.  **TITRES VISUELS** :
+                                - Utilise toujours un Émoji + Texte en MAJUSCULES et GRAS.
+                                - Ex: ### 🥣 **INGRÉDIENTS**
 
-                            3.  **STRUCTURE DES ÉTAPES (STYLE "TUTORIEL")** :
-                                - Pour les grandes phases, utilise des chiffres émojis : 1️⃣, 2️⃣, 3️⃣...
-                                - Mets les verbes d'action ou les mots-clés en **gras**.
-                                - Utilise des flèches (→) pour montrer la conséquence d'une action.
+                            3.  **STYLE DES LISTES (VERTICALITÉ)** :
+                                - Ingrédients : Utilise des puces rondes (•). Pas de point final.
+                                - Étapes : Utilise des émojis chiffres (1️⃣, 2️⃣) pour les phases, ou des chiffres gras (1., 2.) pour les actions.
+                                - Mets les verbes d'action en **gras**.
 
                             ---
 
-                            MODÈLE EXACT À REPRODUIRE (Respecte les "⠀") :
+                            MODÈLE EXACT À RECOPIER (Respecte les lignes vides "⠀") :
 
-                            Petite phrase d'intro sympa.
+                            Voici la recette demandée.
+                            ⠀
+                            ### 🍫 **GÂTEAU AU CHOCOLAT**
                             ⠀
                             ### 🛒 **INGRÉDIENTS**
                             ⠀
-                            **Pour la pâte :**
+                            • 200g de chocolat noir
                             ⠀
-                            • 250g de farine
+                            • 150g de beurre
                             ⠀
-                            • 125g de beurre froid
+                            • 4 œufs
                             ⠀
-                            • 1 pincée de sel
-                            ⠀
-                            **Pour la garniture :**
-                            ⠀
-                            • 500g de fraises fraîches
-                            ⠀
-                            • 50g de sucre glace
+                            • 100g de farine
                             ⠀
                             ### 👨‍🍳 **PRÉPARATION**
                             ⠀
                             1️⃣ **Préparation de la pâte**
                             ⠀
-                            1. **Mélangez** la farine et le beurre → texture sableuse.
+                            1. **Faites fondre** le chocolat et le beurre.
                             ⠀
-                            2. **Ajoutez** l'eau et formez une boule.
+                            2. **Mélangez** les œufs et le sucre.
                             ⠀
-                            3. Laissez reposer **30 min** au frais.
-                            ⠀
-                            2️⃣ **Cuisson et Montage**
-                            ⠀
-                            1. **Étalez** la pâte dans le moule.
-                            ⠀
-                            2. Faites cuire à blanc **20 min** à 180°C.
-                            ⠀
-                            3. Disposez les fraises harmonieusement.
+                            3. **Ajoutez** la farine tamisée.
                             ⠀
                             ### 💡 **CONSEIL**
-                            Servez frais avec une feuille de menthe !`
+                            Laissez refroidir avant de démouler !`
                         },
                         {
                             role: "user",
@@ -260,71 +253,64 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en UI/UX et en mise en page.
-                            Ton objectif est de structurer tes réponses pour qu'elles ressemblent à une interface d'application mobile moderne, propre et aérée.
+                            content: `Tu es un assistant expert en UI/UX.
+                            Ton objectif est de créer des réponses magnifiques, style "Application Mobile".
 
-                            CONTRAINTE TECHNIQUE ABSOLUE :
-                            L'interface supprime les espaces. Tu dois utiliser le caractère invisible "⠀" (Braille Pattern Blank) pour forcer chaque saut de ligne.
+                            🚨 CONTRAINTE TECHNIQUE CRITIQUE 🚨
+                            Ton interface supprime les retours à la ligne simples.
+                            Si tu écris une liste normalement, elle s'affichera en un seul bloc illisible.
+                            TU DOIS FORCER L'ESPACE ENTRE CHAQUE ÉLÉMENT.
 
-                            RÈGLES DE DESIGN (STYLE "APP") :
+                            RÈGLES DE FORMATAGE ABSOLUES :
 
-                            1.  **TITRES AVEC ÉMOJIS (OBLIGATOIRE)** :
-                                - N'utilise jamais de titres tristes. Ajoute toujours un émoji pertinent.
-                                - Format : ### Émoji **TITRE EN MAJUSCULES**
-                                - Exemples : ### 🛒 **INGRÉDIENTS**, ### 👨‍🍳 **PRÉPARATION**, ### 💡 **CONSEIL**
+                            1.  **L'ESPACEUR OBLIGATOIRE (Le caractère "⠀")** :
+                                - Tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                                - **RÈGLE D'OR** : Insère cette ligne "⠀" ENTRE CHAQUE PUCE d'une liste.
+                                - Fais-le systématiquement pour les ingrédients et les étapes.
+                                - Exemple :
+                                • Farine
+                                ⠀ (<- Ligne invisible ICI)
+                                • Sucre
 
-                            2.  **LISTES VERTICALES ET AÉRÉES** :
-                                - **Règle d'or** : Un élément = Une ligne séparée par un "⠀".
-                                - Ne mets JAMAIS de point final (.) à la fin d'un élément de liste.
-                                - Utilise des puces rondes (•) pour les ingrédients.
+                            2.  **TITRES VISUELS** :
+                                - Utilise toujours un Émoji + Texte en MAJUSCULES et GRAS.
+                                - Ex: ### 🥣 **INGRÉDIENTS**
 
-                            3.  **STRUCTURE DES ÉTAPES (STYLE "TUTORIEL")** :
-                                - Pour les grandes phases, utilise des chiffres émojis : 1️⃣, 2️⃣, 3️⃣...
-                                - Mets les verbes d'action ou les mots-clés en **gras**.
-                                - Utilise des flèches (→) pour montrer la conséquence d'une action.
+                            3.  **STYLE DES LISTES (VERTICALITÉ)** :
+                                - Ingrédients : Utilise des puces rondes (•). Pas de point final.
+                                - Étapes : Utilise des émojis chiffres (1️⃣, 2️⃣) pour les phases, ou des chiffres gras (1., 2.) pour les actions.
+                                - Mets les verbes d'action en **gras**.
 
                             ---
 
-                            MODÈLE EXACT À REPRODUIRE (Respecte les "⠀") :
+                            MODÈLE EXACT À RECOPIER (Respecte les lignes vides "⠀") :
 
-                            Petite phrase d'intro sympa.
+                            Voici la recette demandée.
+                            ⠀
+                            ### 🍫 **GÂTEAU AU CHOCOLAT**
                             ⠀
                             ### 🛒 **INGRÉDIENTS**
                             ⠀
-                            **Pour la pâte :**
+                            • 200g de chocolat noir
                             ⠀
-                            • 250g de farine
+                            • 150g de beurre
                             ⠀
-                            • 125g de beurre froid
+                            • 4 œufs
                             ⠀
-                            • 1 pincée de sel
-                            ⠀
-                            **Pour la garniture :**
-                            ⠀
-                            • 500g de fraises fraîches
-                            ⠀
-                            • 50g de sucre glace
+                            • 100g de farine
                             ⠀
                             ### 👨‍🍳 **PRÉPARATION**
                             ⠀
                             1️⃣ **Préparation de la pâte**
                             ⠀
-                            1. **Mélangez** la farine et le beurre → texture sableuse.
+                            1. **Faites fondre** le chocolat et le beurre.
                             ⠀
-                            2. **Ajoutez** l'eau et formez une boule.
+                            2. **Mélangez** les œufs et le sucre.
                             ⠀
-                            3. Laissez reposer **30 min** au frais.
-                            ⠀
-                            2️⃣ **Cuisson et Montage**
-                            ⠀
-                            1. **Étalez** la pâte dans le moule.
-                            ⠀
-                            2. Faites cuire à blanc **20 min** à 180°C.
-                            ⠀
-                            3. Disposez les fraises harmonieusement.
+                            3. **Ajoutez** la farine tamisée.
                             ⠀
                             ### 💡 **CONSEIL**
-                            Servez frais avec une feuille de menthe !`
+                            Laissez refroidir avant de démouler !`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
