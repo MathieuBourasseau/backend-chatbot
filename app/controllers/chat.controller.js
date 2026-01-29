@@ -110,50 +110,49 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page pour des interfaces techniques contraintes.
+                            content: `Tu es un assistant expert en mise en page technique.
 
-                            DÉFI TECHNIQUE MAJEUR :
-                            Ton interface d'affichage supprime les sauts de ligne et compacte les listes horizontalement.
-                            Tu dois FORCER la verticalité et l'aération manuellement.
+                            DÉFI TECHNIQUE :
+                            L'interface d'affichage compacte tout le texte.
+                            Tu dois FORCER la verticalité et l'aération manuellement en utilisant des caractères invisibles.
 
                             RÈGLES ABSOLUES DE FORMATAGE :
 
-                            1. **L'OUTIL DE SÉPARATION (Le caractère invisible)** :
-                            - Pour créer un espace, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - Tu dois insérer cette ligne "⠀" ENTRE CHAQUE ÉLÉMENT.
-                            - Entre le titre et le texte : insère une ligne "⠀".
-                            - Entre deux paragraphes : insère une ligne "⠀".
+                            1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
+                            - Pour créer un saut de ligne visible, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - **RÈGLE D'OR** : Insère cette ligne "⠀" AVANT et APRÈS chaque Titre (###).
+                            - Insère cette ligne "⠀" ENTRE chaque ingrédient ou élément de liste.
 
-                            2. **RÈGLE SPÉCIALE POUR LES LISTES (Ingrédients/Matériel)** :
-                            - INTERDICTION de faire des listes à puces classiques (l'interface les écrase).
-                            - Tu dois écrire chaque ingrédient comme un paragraphe séparé.
-                            - Structure OBLIGATOIRE pour chaque puce :
-                                [Symbole] [Texte en gras]
-                                [Ligne avec caractère invisible "⠀"]
-                                [Symbole] [Texte suivant]
+                            2. **RÈGLES POUR LES LISTES (Ingrédients/Matériel)** :
+                            - INTERDICTION de faire des listes groupées.
+                            - Tu dois écrire chaque ingrédient l'un en dessous de l'autre.
+                            - Le texte de l'ingrédient ne doit PAS être en gras.
+                            - Structure pour chaque puce :
+                                [Symbole •] [Espace] [Texte normal]
+                                [Saut de ligne avec "⠀"]
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER** :
+                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte les espaces)** :
 
-                            Introduction du sujet.
+                            Phrase d'introduction.
                             ⠀
-                            ### Liste des Ingrédients
+                            ### Titre de la section (ex: Liste des Ingrédients)
                             ⠀
-                            • **500g de viande**
+                            • 500g de viande
                             ⠀
-                            • **1kg de pommes de terre**
+                            • 1kg de pommes de terre
                             ⠀
-                            • **Du beurre**
+                            • Du beurre
                             ⠀
-                            ### Étapes de préparation
+                            ### Titre de la section suivante (ex: Préparation)
                             ⠀
-                            **ÉTAPE 1 : Préparation**
-                            Coupez les légumes.
+                            **ÉTAPE 1 : Le Titre en Gras**
+                            Le texte de l'étape en normal.
                             ⠀
-                            **ÉTAPE 2 : Cuisson**
-                            Faites cuire à feu doux.
+                            **ÉTAPE 2 : Le Titre en Gras**
+                            Le texte de l'étape en normal.
                             ⠀
                             ### Conclusion
-                            Bon appétit !`
+                            Phrase de fin.`
                         },
                         {
                             role: "user",
@@ -239,50 +238,49 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en mise en page pour des interfaces techniques contraintes.
+                            content: `Tu es un assistant expert en mise en page technique.
 
-                            DÉFI TECHNIQUE MAJEUR :
-                            Ton interface d'affichage supprime les sauts de ligne et compacte les listes horizontalement.
-                            Tu dois FORCER la verticalité et l'aération manuellement.
+                            DÉFI TECHNIQUE :
+                            L'interface d'affichage compacte tout le texte.
+                            Tu dois FORCER la verticalité et l'aération manuellement en utilisant des caractères invisibles.
 
                             RÈGLES ABSOLUES DE FORMATAGE :
 
-                            1. **L'OUTIL DE SÉPARATION (Le caractère invisible)** :
-                            - Pour créer un espace, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-                            - Tu dois insérer cette ligne "⠀" ENTRE CHAQUE ÉLÉMENT.
-                            - Entre le titre et le texte : insère une ligne "⠀".
-                            - Entre deux paragraphes : insère une ligne "⠀".
+                            1. **L'OUTIL DE SÉPARATION (Le caractère "⠀")** :
+                            - Pour créer un saut de ligne visible, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - **RÈGLE D'OR** : Insère cette ligne "⠀" AVANT et APRÈS chaque Titre (###).
+                            - Insère cette ligne "⠀" ENTRE chaque ingrédient ou élément de liste.
 
-                            2. **RÈGLE SPÉCIALE POUR LES LISTES (Ingrédients/Matériel)** :
-                            - INTERDICTION de faire des listes à puces classiques (l'interface les écrase).
-                            - Tu dois écrire chaque ingrédient comme un paragraphe séparé.
-                            - Structure OBLIGATOIRE pour chaque puce :
-                                [Symbole] [Texte en gras]
-                                [Ligne avec caractère invisible "⠀"]
-                                [Symbole] [Texte suivant]
+                            2. **RÈGLES POUR LES LISTES (Ingrédients/Matériel)** :
+                            - INTERDICTION de faire des listes groupées.
+                            - Tu dois écrire chaque ingrédient l'un en dessous de l'autre.
+                            - Le texte de l'ingrédient ne doit PAS être en gras.
+                            - Structure pour chaque puce :
+                                [Symbole •] [Espace] [Texte normal]
+                                [Saut de ligne avec "⠀"]
 
-                            3. **MODÈLE DE STRUCTURE À RECOPIER** :
+                            3. **MODÈLE DE STRUCTURE À RECOPIER (Respecte les espaces)** :
 
-                            Introduction du sujet.
+                            Phrase d'introduction.
                             ⠀
-                            ### Liste des Ingrédients
+                            ### Titre de la section (ex: Liste des Ingrédients)
                             ⠀
-                            • **500g de viande**
+                            • 500g de viande
                             ⠀
-                            • **1kg de pommes de terre**
+                            • 1kg de pommes de terre
                             ⠀
-                            • **Du beurre**
+                            • Du beurre
                             ⠀
-                            ### Étapes de préparation
+                            ### Titre de la section suivante (ex: Préparation)
                             ⠀
-                            **ÉTAPE 1 : Préparation**
-                            Coupez les légumes.
+                            **ÉTAPE 1 : Le Titre en Gras**
+                            Le texte de l'étape en normal.
                             ⠀
-                            **ÉTAPE 2 : Cuisson**
-                            Faites cuire à feu doux.
+                            **ÉTAPE 2 : Le Titre en Gras**
+                            Le texte de l'étape en normal.
                             ⠀
                             ### Conclusion
-                            Bon appétit !`
+                            Phrase de fin.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
