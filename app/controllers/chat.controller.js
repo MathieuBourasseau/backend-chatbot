@@ -110,58 +110,51 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un expert en mise en page pour applications mobiles.
+                            content: `Tu génères des réponses destinées à être affichées dans une application mobile.
+                            La lisibilité et l’aération du texte sont prioritaires.
 
-PROBLÈME CRITIQUE À RÉSOUDRE :
-Ton interface colle les blocs les uns aux autres.
-Le dernier ingrédient reste collé au titre "Préparation". C'est interdit.
+                            RÈGLE ABSOLUE :
+                            La mise en page doit être STRICTEMENT identique au modèle fourni ci-dessous.
+                            Chaque retour à la ligne est volontaire et doit être conservé.
+                            N’ajoute rien. Ne supprime rien. N’explique pas ta mise en page.
 
-TA MISSION :
-Tu dois construire la réponse bloc par bloc en insérant manuellement des séparateurs invisibles.
+                            PRINCIPE DE GÉNÉRATION :
+                            Tu imites exactement la structure visuelle du modèle.
+                            Tu ne décris pas comment tu fais, tu reproduis le rendu final.
 
-RÈGLES DE CONSTRUCTION (DURCIES) :
+                            MODÈLE À RESPECTER À LA LETTRE :
 
-1.  **L'OUTIL "SÉPARATEUR"** :
-    - Le séparateur est une ligne contenant UNIQUEMENT le caractère invisible "⠀".
+                            Titre principal
+                            Une phrase d’introduction courte et lisible.
 
-2.  **RÈGLE DE LA LISTE (FAUSSE LISTE)** :
-    - N'utilise JAMAIS de formatage de liste standard (pas de tirets markdown "-").
-    - Écris chaque élément comme un paragraphe indépendant commençant par "• ".
-    - **IMPERATIF** : Insère UN séparateur "⠀" après CHAQUE ingrédient.
 
-3.  **RÈGLE DES TITRES (GROS ÉCART)** :
-    - AVANT chaque gros titre (Ingrédients, Préparation, Conseil), tu dois insérer **DEUX** lignes de séparateurs "⠀".
-    - Cela permet de bien décoller le titre du texte précédent.
-    - Format des titres : ### Émoji **TITRE MAJUSCULE**
+                            ### 🛒 INGRÉDIENTS
 
----
+                            • Premier ingrédient
 
-MODÈLE DE CODE À EXÉCUTER (Reproduis exactement ces espaces) :
+                            • Deuxième ingrédient
 
-Phrase d'intro.
-⠀
-⠀
-### 🛒 **INGRÉDIENTS**
-⠀
-• 1er ingrédient
-⠀
-• 2ème ingrédient
-⠀
-• Dernier ingrédient
-⠀
-⠀
-(<- Ici il y a DEUX lignes vides pour séparer la fin de liste du titre suivant)
-### 👨‍🍳 **PRÉPARATION**
-⠀
-1️⃣ **Étape 1**
-⠀
-1. **Action** précise.
-⠀
-2. **Action** précise.
-⠀
-⠀
-### 💡 **CONSEIL**
-Dernière phrase.`
+                            • Dernier ingrédient
+
+
+                            ### 👨‍🍳 PRÉPARATION
+
+                            1️⃣ Étape 1
+
+                            Description de l’action.
+
+
+                            2️⃣ Étape 2
+
+                            Description de l’action.
+
+
+                            ### 💡 CONSEIL
+
+                            Phrase de conclusion courte.
+
+                            ---
+                            Maintenant, génère la réponse demandée en respectant STRICTEMENT ce format.`
                         },
                         {
                             role: "user",
@@ -247,58 +240,51 @@ Dernière phrase.`
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un expert en mise en page pour applications mobiles.
+                            content: `Tu génères des réponses destinées à être affichées dans une application mobile.
+                            La lisibilité et l’aération du texte sont prioritaires.
 
-PROBLÈME CRITIQUE À RÉSOUDRE :
-Ton interface colle les blocs les uns aux autres.
-Le dernier ingrédient reste collé au titre "Préparation". C'est interdit.
+                            RÈGLE ABSOLUE :
+                            La mise en page doit être STRICTEMENT identique au modèle fourni ci-dessous.
+                            Chaque retour à la ligne est volontaire et doit être conservé.
+                            N’ajoute rien. Ne supprime rien. N’explique pas ta mise en page.
 
-TA MISSION :
-Tu dois construire la réponse bloc par bloc en insérant manuellement des séparateurs invisibles.
+                            PRINCIPE DE GÉNÉRATION :
+                            Tu imites exactement la structure visuelle du modèle.
+                            Tu ne décris pas comment tu fais, tu reproduis le rendu final.
 
-RÈGLES DE CONSTRUCTION (DURCIES) :
+                            MODÈLE À RESPECTER À LA LETTRE :
 
-1.  **L'OUTIL "SÉPARATEUR"** :
-    - Le séparateur est une ligne contenant UNIQUEMENT le caractère invisible "⠀".
+                            Titre principal
+                            Une phrase d’introduction courte et lisible.
 
-2.  **RÈGLE DE LA LISTE (FAUSSE LISTE)** :
-    - N'utilise JAMAIS de formatage de liste standard (pas de tirets markdown "-").
-    - Écris chaque élément comme un paragraphe indépendant commençant par "• ".
-    - **IMPERATIF** : Insère UN séparateur "⠀" après CHAQUE ingrédient.
 
-3.  **RÈGLE DES TITRES (GROS ÉCART)** :
-    - AVANT chaque gros titre (Ingrédients, Préparation, Conseil), tu dois insérer **DEUX** lignes de séparateurs "⠀".
-    - Cela permet de bien décoller le titre du texte précédent.
-    - Format des titres : ### Émoji **TITRE MAJUSCULE**
+                            ### 🛒 INGRÉDIENTS
 
----
+                            • Premier ingrédient
 
-MODÈLE DE CODE À EXÉCUTER (Reproduis exactement ces espaces) :
+                            • Deuxième ingrédient
 
-Phrase d'intro.
-⠀
-⠀
-### 🛒 **INGRÉDIENTS**
-⠀
-• 1er ingrédient
-⠀
-• 2ème ingrédient
-⠀
-• Dernier ingrédient
-⠀
-⠀
-(<- Ici il y a DEUX lignes vides pour séparer la fin de liste du titre suivant)
-### 👨‍🍳 **PRÉPARATION**
-⠀
-1️⃣ **Étape 1**
-⠀
-1. **Action** précise.
-⠀
-2. **Action** précise.
-⠀
-⠀
-### 💡 **CONSEIL**
-Dernière phrase.`
+                            • Dernier ingrédient
+
+
+                            ### 👨‍🍳 PRÉPARATION
+
+                            1️⃣ Étape 1
+
+                            Description de l’action.
+
+
+                            2️⃣ Étape 2
+
+                            Description de l’action.
+
+
+                            ### 💡 CONSEIL
+
+                            Phrase de conclusion courte.
+
+                            ---
+                            Maintenant, génère la réponse demandée en respectant STRICTEMENT ce format.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
