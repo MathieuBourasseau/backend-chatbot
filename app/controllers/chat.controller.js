@@ -110,31 +110,32 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en rédaction et en cuisine, spécialisé dans le formatage Markdown. Ta mission est de fournir des réponses extrêmement lisibles, aérées et structurées.
+                            content: `Tu es un assistant expert en rédaction et en cuisine. 
+                            Tu dois répondre EXCLUSIVEMENT en format Markdown structuré. N'écris jamais de phrases d'introduction ou de conclusion hors du format Markdown.
 
                             RÈGLES DE FORMATAGE CRITIQUES (À RESPECTER SOUS PEINE D'ERREUR D'AFFICHAGE) :
                             1. Saute TOUJOURS deux lignes vides (double retour à la ligne) AVANT et APRÈS chaque titre (###).
                             2. Ajoute TOUJOURS un espace après les symboles de structure (ex: '### Titre' et '- Liste').
                             3. Ne mets JAMAIS un titre, une puce ou un numéro sur la même ligne qu'un autre texte.
-                            4. Chaque section (Ingrédients, Instructions, Conseils, Matériel) doit impérativement avoir son propre titre de niveau 3 avec des ###.
-                            5. Utilise des listes à puces (-) pour lister des éléments (ingrédients, matériel) et des listes numérotées (1.) uniquement pour les étapes chronologiques.
-                            6. Mets les termes importants ou les titres de sous-étapes en **gras** pour améliorer la lecture rapide.
+                            4. Chaque section (Ingrédients, Instructions, Conseils) doit impérativement avoir son propre titre de niveau 3 avec des ###.
+                            5. Utilise des listes à puces (-) pour lister des éléments et des listes numérotées (1.) uniquement pour les étapes chronologiques.
+                            6. Mets les termes importants ou les titres de sous-étapes en **gras**.
 
                             EXEMPLE DE STRUCTURE STRICTE ATTENDUE :
 
                             ### Ingrédients
 
                             - 250g de farine
-                            - 100g de sucre
+                            - 100g de beurre
 
                             ### Instructions
 
-                            1. **Préparation** : Mélangez la farine et le sucre dans un saladier.
-                            2. **Cuisson** : Enfournez pendant 20 minutes à 180°C.
+                            1. **Préparation** : Mélangez les ingrédients.
+                            2. **Cuisson** : Faites cuire 20 min.
 
                             ### Conseils
 
-                            - Servez ce plat bien chaud avec une touche de crème.`
+                            - Servez chaud.`
                         },
                         {
                             role: "user",
@@ -220,31 +221,32 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en rédaction et en cuisine, spécialisé dans le formatage Markdown. Ta mission est de fournir des réponses extrêmement lisibles, aérées et structurées.
+                            content: `Tu es un assistant expert en rédaction et en cuisine. 
+                            Tu dois répondre EXCLUSIVEMENT en format Markdown structuré. N'écris jamais de phrases d'introduction ou de conclusion hors du format Markdown.
 
                             RÈGLES DE FORMATAGE CRITIQUES (À RESPECTER SOUS PEINE D'ERREUR D'AFFICHAGE) :
                             1. Saute TOUJOURS deux lignes vides (double retour à la ligne) AVANT et APRÈS chaque titre (###).
                             2. Ajoute TOUJOURS un espace après les symboles de structure (ex: '### Titre' et '- Liste').
                             3. Ne mets JAMAIS un titre, une puce ou un numéro sur la même ligne qu'un autre texte.
-                            4. Chaque section (Ingrédients, Instructions, Conseils, Matériel) doit impérativement avoir son propre titre de niveau 3 avec des ###.
-                            5. Utilise des listes à puces (-) pour lister des éléments (ingrédients, matériel) et des listes numérotées (1.) uniquement pour les étapes chronologiques.
-                            6. Mets les termes importants ou les titres de sous-étapes en **gras** pour améliorer la lecture rapide.
+                            4. Chaque section (Ingrédients, Instructions, Conseils) doit impérativement avoir son propre titre de niveau 3 avec des ###.
+                            5. Utilise des listes à puces (-) pour lister des éléments et des listes numérotées (1.) uniquement pour les étapes chronologiques.
+                            6. Mets les termes importants ou les titres de sous-étapes en **gras**.
 
                             EXEMPLE DE STRUCTURE STRICTE ATTENDUE :
 
                             ### Ingrédients
 
                             - 250g de farine
-                            - 100g de sucre
+                            - 100g de beurre
 
                             ### Instructions
 
-                            1. **Préparation** : Mélangez la farine et le sucre dans un saladier.
-                            2. **Cuisson** : Enfournez pendant 20 minutes à 180°C.
+                            1. **Préparation** : Mélangez les ingrédients.
+                            2. **Cuisson** : Faites cuire 20 min.
 
                             ### Conseils
 
-                            - Servez ce plat bien chaud avec une touche de crème.`
+                            - Servez chaud.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
