@@ -2,8 +2,12 @@ import { Router } from "express";
 import { chatController } from "../controllers/chat.controller.js";
 import { checkChat, checkFirstMessage } from "../middlewares/checkChat.js";
 import { checkId } from "../middlewares/checkId.js";
+import { authenticateToken } from "../middlewares/auth.js";
 
 export const chatRouter = Router();
+
+// Use middleware to check token and user
+chatRouter.use(authenticateToken);
 
 //  ROUTE TO GET ALL CHATS
 chatRouter.get('/chats', chatController.getAll);
