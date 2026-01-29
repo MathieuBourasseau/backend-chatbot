@@ -11,7 +11,11 @@ export const chatController = {
     getAll: async (req, res) => {
 
         try {
+
+            const userId = req.user.id;
+
             const chats = await Chat.findAll({
+                where: { user_id: userId },
                 order: [['created_at', 'DESC']]
             });
             res.json(chats)
@@ -29,8 +33,17 @@ export const chatController = {
             // Get the ID from the URL
             const { id } = req.params;
 
+            // Get the user id from request
+            const userId = req.user.id;
+
             // Check in the database if this chat exists
-            const chat = await Chat.findByPk(id);
+            const chat = await Chat.findOne({
+                where: {
+                    id: id,
+                    user_id: userId // Show only the chat of the user
+                }
+            });
+
             if (!chat) {
                 return res.status(404).json({ error: "Ce chat n'existe pas." });
             }
@@ -55,7 +68,11 @@ export const chatController = {
 
         try {
 
-            const { firstMessage, user_id } = req.body; // Catch first message and user id from the body request
+            // Get message from body
+            const { firstMessage } = req.body;
+
+            // Get id from the token
+            const userId = req.user.id;
 
             // FETCH TO MISTRAL TO GENERATE A TITLE AND A CHAT ID
 
@@ -91,7 +108,7 @@ export const chatController = {
             // Create a new chat with the chat title generated before and the user id
             const newChat = await Chat.create({
                 name: chatTitle,
-                user_id: user_id,
+                user_id: userId,
             });
 
             // Create the message bounded to the chat
@@ -159,8 +176,14 @@ export const chatController = {
             // Get the ID of the chat from the URL
             const { id } = req.params;
 
-            // Checking the chat ID 
-            const currentChat = await Chat.findByPk(id);
+            // Checking that the current chat belong to the right user
+            const currentChat = await Chat.findOne({
+                where: {
+                    id: id,
+                    user_id: req.user.id
+                }
+            });
+
             if (!currentChat) {
                 return res.status(400).json({ error: "Chat introuvable." })
             };
