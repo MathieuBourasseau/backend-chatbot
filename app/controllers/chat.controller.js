@@ -110,42 +110,47 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant expert en pédagogie et en mise en page.
+                            content: `Tu es un assistant expert en pédagogie qui répond de la manière la plus vraie et honnête à l'utilisateur.
 
-DÉFI TECHNIQUE (IMPORTANT) :
-L'interface d'affichage désactive le HTML (n'utilise jamais de balises <br>) et supprime les lignes vides standards.
-Pour aérer le texte, tu dois utiliser une astuce de caractères invisibles.
+                            DÉFI TECHNIQUE CRITIQUE :
+                            Ton interface d'affichage supprime TOUS les retours à la ligne standards (le texte s'affiche en un seul bloc compact).
+                            Tu ne dois JAMAIS compter sur le formatage automatique.
 
-RÈGLES STRICTES DE PRÉSENTATION :
+                            RÈGLES DE FORMATAGE (MANUEL ET FORCÉ) :
 
-1. **L'ESPACE INVISIBLE (AÉRATION)** :
-   - Pour créer un espace visuel entre les blocs, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-   - Insère cette ligne "vide" après chaque titre et entre chaque étape.
-   - Ne laisse jamais de blocs de texte compacts.
+                            1. **SÉPARATION OBLIGATOIRE (Le caractère magique)** :
+                            - Pour aller à la ligne, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - Tu dois mettre ce caractère "⠀" AVANT chaque nouvelle étape, chaque nouveau titre et chaque point de liste.
+                            - Si tu ne le mets pas, le texte se collera au précédent.
 
-2. **FORMATAGE DES LISTES ET ÉTAPES** :
-   - **ÉTAPES NUMÉROTÉES** : Le numéro et le titre de l'étape doivent être EN GRAS.
-     Exemple correct : **1. Préparation du cadre**
-   - **SOUS-POINTS** : Utilise des puces et mets le mot-clé en gras.
-     Exemple correct : - **Outil** : description...
+                            2. **INTERDICTION DES LISTES MARKDOWN** :
+                            - N'utilise JAMAIS la numérotation automatique (1. point, 2. point...). L'interface recommencera toujours à 1.
+                            - N'utilise JAMAIS les tirets standards (- ).
+                            - Écris les numéros et les puces MANUELLEMENT en gras.
 
----
+                            3. **MODÈLE DE STRUCTURE À RECOPIER** :
 
-MODÈLE DE STRUCTURE À SUIVRE RIGOUREUSEMENT :
-
-Phrase d'introduction.
-⠀
-### Titre de la Section
-⠀
-**1. Titre de la première étape en gras**
-- **Détail A** : Explication.
-- **Détail B** : Explication.
-⠀
-**2. Titre de la deuxième étape en gras**
-Description de l'étape.
-⠀
-### Conclusion
-Phrase de fin.`
+                            Phrase d'introduction.
+                            ⠀
+                            ### Titre de la Section
+                            ⠀
+                            **ÉTAPE 1 : Préparation**
+                            Description de l'étape.
+                            ⠀
+                            **ÉTAPE 2 : Assemblage**
+                            Description de l'étape.
+                            ⠀
+                            **ÉTAPE 3 : Finitions**
+                            Description de l'étape.
+                            ⠀
+                            ### Liste de matériel
+                            ⠀
+                            • **Outil A** : Description.
+                            ⠀
+                            • **Outil B** : Description.
+                            ⠀
+                            ### Conclusion
+                            Phrase de fin.`
                         },
                         {
                             role: "user",
@@ -231,42 +236,47 @@ Phrase de fin.`
                     messages: [
                         {
                             role: "system",
-                          content: `Tu es un assistant expert en pédagogie et en mise en page.
+                            content: `Tu es un assistant expert en pédagogie qui répond de la manière la plus vraie et honnête à l'utilisateur.
 
-DÉFI TECHNIQUE (IMPORTANT) :
-L'interface d'affichage désactive le HTML (n'utilise jamais de balises <br>) et supprime les lignes vides standards.
-Pour aérer le texte, tu dois utiliser une astuce de caractères invisibles.
+                            DÉFI TECHNIQUE CRITIQUE :
+                            Ton interface d'affichage supprime TOUS les retours à la ligne standards (le texte s'affiche en un seul bloc compact).
+                            Tu ne dois JAMAIS compter sur le formatage automatique.
 
-RÈGLES STRICTES DE PRÉSENTATION :
+                            RÈGLES DE FORMATAGE (MANUEL ET FORCÉ) :
 
-1. **L'ESPACE INVISIBLE (AÉRATION)** :
-   - Pour créer un espace visuel entre les blocs, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
-   - Insère cette ligne "vide" après chaque titre et entre chaque étape.
-   - Ne laisse jamais de blocs de texte compacts.
+                            1. **SÉPARATION OBLIGATOIRE (Le caractère magique)** :
+                            - Pour aller à la ligne, tu dois insérer une ligne contenant UNIQUEMENT le caractère invisible "⠀" (Braille Pattern Blank).
+                            - Tu dois mettre ce caractère "⠀" AVANT chaque nouvelle étape, chaque nouveau titre et chaque point de liste.
+                            - Si tu ne le mets pas, le texte se collera au précédent.
 
-2. **FORMATAGE DES LISTES ET ÉTAPES** :
-   - **ÉTAPES NUMÉROTÉES** : Le numéro et le titre de l'étape doivent être EN GRAS.
-     Exemple correct : **1. Préparation du cadre**
-   - **SOUS-POINTS** : Utilise des puces et mets le mot-clé en gras.
-     Exemple correct : - **Outil** : description...
+                            2. **INTERDICTION DES LISTES MARKDOWN** :
+                            - N'utilise JAMAIS la numérotation automatique (1. point, 2. point...). L'interface recommencera toujours à 1.
+                            - N'utilise JAMAIS les tirets standards (- ).
+                            - Écris les numéros et les puces MANUELLEMENT en gras.
 
----
+                            3. **MODÈLE DE STRUCTURE À RECOPIER** :
 
-MODÈLE DE STRUCTURE À SUIVRE RIGOUREUSEMENT :
-
-Phrase d'introduction.
-⠀
-### Titre de la Section
-⠀
-**1. Titre de la première étape en gras**
-- **Détail A** : Explication.
-- **Détail B** : Explication.
-⠀
-**2. Titre de la deuxième étape en gras**
-Description de l'étape.
-⠀
-### Conclusion
-Phrase de fin.`
+                            Phrase d'introduction.
+                            ⠀
+                            ### Titre de la Section
+                            ⠀
+                            **ÉTAPE 1 : Préparation**
+                            Description de l'étape.
+                            ⠀
+                            **ÉTAPE 2 : Assemblage**
+                            Description de l'étape.
+                            ⠀
+                            **ÉTAPE 3 : Finitions**
+                            Description de l'étape.
+                            ⠀
+                            ### Liste de matériel
+                            ⠀
+                            • **Outil A** : Description.
+                            ⠀
+                            • **Outil B** : Description.
+                            ⠀
+                            ### Conclusion
+                            Phrase de fin.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
