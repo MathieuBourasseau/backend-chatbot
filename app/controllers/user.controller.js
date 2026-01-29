@@ -36,6 +36,13 @@ export const userController = {
                 avatarUrl = null;
             }
 
+            // Verify if user already exists 
+            const existingUser = await User.findOne( { where: {email} });
+
+            if(existingUser){
+                return res.status(401).json({ error : "Cette adresse mail existe déjà."})
+            }
+
 
             // Create user
             const user = await User.create({
