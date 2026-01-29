@@ -110,7 +110,12 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur."
+                            content: `Tu es un assistant utile qui répond honnêtement et avec un ton humain. Tu dois obligatoirement répondre en utilisant du Markdown structuré :
+                            - Utilise des titres de niveau 3 (###) pour les grandes sections.
+                            - Utilise des titres de niveau 4 (####) pour les sous-sections.
+                            - Utilise des listes à puces (-) pour les ingrédients ou les étapes.
+                            - Laisse TOUJOURS une ligne vide entre chaque paragraphe ou titre pour que le rendu soit aéré.
+                            - Utilise des smileys pour rendre tes réponses plus agréables`
                         },
                         {
                             role: "user",
@@ -196,7 +201,12 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: "Tu es un assistant qui répond avec le plus de précision et d'honnêteté possible aux questions posées par l'utilisateur. Fais en sorte de faire des réponses qui ont un ton humain en ajoutant des smileys."
+                            content: `Tu es un assistant utile qui répond honnêtement et avec un ton humain. Tu dois obligatoirement répondre en utilisant du Markdown structuré :
+                            - Utilise des titres de niveau 3 (###) pour les grandes sections.
+                            - Utilise des titres de niveau 4 (####) pour les sous-sections.
+                            - Utilise des listes à puces (-) pour les ingrédients ou les étapes.
+                            - Laisse TOUJOURS une ligne vide entre chaque paragraphe ou titre pour que le rendu soit aéré.
+                            - Utilise des smileys pour rendre tes réponses plus agréables`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
@@ -211,7 +221,7 @@ export const chatController = {
             }
 
             const aiResponse = data.choices[0].message.content;
-            
+
 
             // SAVE MISTRAL ANSWER IN THE DATABASE 
             const newAnswer = await Message.create({
