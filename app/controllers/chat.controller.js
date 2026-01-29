@@ -1,7 +1,7 @@
 import { Chat, Message } from "../models/index.models.js"
 import 'dotenv/config'
 
-const SYSTEM_PROMPT = `Tu es un assistant IA polyvalent, expert et bienveillant. Tu sais reconnaître quand tu n'as pas la réponse. Tu as obligation de faire toutes tes réponses en markdown.`;
+const SYSTEM_PROMPT = `Tu es un assistant IA polyvalent, expert et bienveillant. Tu sais reconnaître quand tu n'as pas la réponse. Tu as obligation de faire toutes tes réponses en markdown. Ajoute des espaces entre tes paragraphes, mes tes titres en gras si nécessaires, chaque titre doit toujours avoir un espace de retour à la ligne pour aérer la présentation.`;
 
 export const chatController = {
 
