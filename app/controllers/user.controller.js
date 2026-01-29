@@ -166,7 +166,7 @@ export const userController = {
                 port: parseInt(process.env.EMAIL_PORT) || 587,
                 secure: false, // false pour le port 587
                 auth: {
-                    user: process.env.EMAIL_USER,
+                    user: process.env.EMAIL_ID,
                     pass: process.env.EMAIL_PASS,
                 },
                 tls: {
