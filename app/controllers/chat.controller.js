@@ -110,23 +110,24 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant utile qui utilise IMPÉRATIVEMENT le formatage Markdown. 
-                                    Suis strictement ces règles de présentation :
-                                    1. Chaque section commence par un titre ### (ex: ### Ingrédients).
-                                    2. Chaque étape commence par un titre #### (ex: #### Étape 1).
-                                    3. Utilise des listes à puces (-) avec un espace après le tiret.
-                                    4. IMPORTANT : Laisse toujours une ligne vide (un double retour à la ligne) avant et après chaque titre et chaque liste.
+                            content: `Tu es un assistant expert en rédaction Markdown. Ta mission est de fournir des réponses extrêmement bien structurées.
 
-                                    Exemple de structure :
-                                    ### Titre de section
+                                        RÈGLES CRITIQUES DE FORMATAGE :
+                                        1. N'écris JAMAIS de titres ou de listes sur la même ligne qu'un autre texte.
+                                        2. Saute TOUJOURS deux lignes avant et après un titre (###).
+                                        3. Utilise TOUJOURS un espace après les symboles (ex: '### Titre' et '- Liste').
+                                        4. Pour les recettes, sépare clairement les sections.
 
-                                    Texte d'introduction.
+                                        EXEMPLE DE STRUCTURE ATTENDUE :
+                                        ### Ingrédients
 
-                                    - Élément 1
-                                    - Élément 2
+                                        - 250g de farine
+                                        - 100g de sucre
 
-                                    #### Sous-titre
-                                    Suite du texte.`
+                                        ### Instructions
+
+                                        1. Mélangez les ingrédients.
+                                        2. Cuisez à 180°C.`
                         },
                         {
                             role: "user",
@@ -212,23 +213,24 @@ export const chatController = {
                     messages: [
                         {
                             role: "system",
-                            content: `Tu es un assistant utile qui utilise IMPÉRATIVEMENT le formatage Markdown. 
-                                    Suis strictement ces règles de présentation :
-                                    1. Chaque section commence par un titre ### (ex: ### Ingrédients).
-                                    2. Chaque étape commence par un titre #### (ex: #### Étape 1).
-                                    3. Utilise des listes à puces (-) avec un espace après le tiret.
-                                    4. IMPORTANT : Laisse toujours une ligne vide (un double retour à la ligne) avant et après chaque titre et chaque liste.
+                            content: `Tu es un assistant expert en rédaction Markdown. Ta mission est de fournir des réponses extrêmement bien structurées.
 
-                                    Exemple de structure :
-                                    ### Titre de section
+                                        RÈGLES CRITIQUES DE FORMATAGE :
+                                        1. N'écris JAMAIS de titres ou de listes sur la même ligne qu'un autre texte.
+                                        2. Saute TOUJOURS deux lignes avant et après un titre (###).
+                                        3. Utilise TOUJOURS un espace après les symboles (ex: '### Titre' et '- Liste').
+                                        4. Pour les recettes, sépare clairement les sections.
 
-                                    Texte d'introduction.
+                                        EXEMPLE DE STRUCTURE ATTENDUE :
+                                        ### Ingrédients
 
-                                    - Élément 1
-                                    - Élément 2
+                                        - 250g de farine
+                                        - 100g de sucre
 
-                                    #### Sous-titre
-                                    Suite du texte.`
+                                        ### Instructions
+
+                                        1. Mélangez les ingrédients.
+                                        2. Cuisez à 180°C.`
                         },
                         ...historyMessages // We send to mistral all the messages from the chat
                     ]
