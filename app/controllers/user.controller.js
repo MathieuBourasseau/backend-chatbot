@@ -5,7 +5,7 @@ import 'dotenv/config'
 import crypto from 'crypto'
 import nodemailer from "nodemailer"
 import 'dotenv/config'
-import e from "cors";
+
 
 export const userController = {
 
