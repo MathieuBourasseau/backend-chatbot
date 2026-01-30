@@ -145,12 +145,15 @@ export const chatController = {
             if (!rawAiAnswer.choices || rawAiAnswer.choices.length === 0) {
                 throw new Error("Mistral n'a pas pu générer de réponse.");
             }
+
             const aiResponse = rawAiAnswer.choices[0].message.content;
+
+            const formattedResponse = aiResponse.replace(/(?<!\n)\n(?!\n)/g, '\n\n');
 
             // Create the AI response in the database
             const newAnswer = await Message.create({
                 role: "assistant",
-                content: aiResponse,
+                content: formattedResponse,
                 chat_id: newChat.id
             })
 
@@ -238,11 +241,12 @@ export const chatController = {
 
             const aiResponse = data.choices[0].message.content;
 
+            const formattedResponse = aiResponse.replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //
 
             // SAVE MISTRAL ANSWER IN THE DATABASE 
             const newAnswer = await Message.create({
                 role: "assistant",
-                content: aiResponse,
+                content: formattedResponse,
                 chat_id: id,
             });
 
