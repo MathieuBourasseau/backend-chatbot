@@ -6,7 +6,6 @@ import crypto from 'crypto'
 import nodemailer from "nodemailer"
 import 'dotenv/config'
 
-
 export const userController = {
 
     // --- METHOD TO REGISTER USER ---
@@ -76,7 +75,7 @@ export const userController = {
             // 1. FIND USER :
             // Get data from the body request 
             const { username, password, rememberMe } = req.body;
-
+            
             // Find the user in the DB with the email
             const user = await User.findOne({
                 where: { username }
