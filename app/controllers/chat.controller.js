@@ -2,7 +2,7 @@ import { Chat, Message } from "../models/index.models.js"
 import 'dotenv/config'
 
 // PROMPT FOR MISTRAL 
-const SYSTEM_PROMPT = `Tu es un assistant IA polyvalent, expert et bienveillant. Tu sais reconnaître quand tu n'as pas la réponse. Tu as obligation de faire toutes tes réponses en markdown. Ajoute des espaces entre tes paragraphes, mes tes titres en gras si nécessaires, chaque titre doit toujours avoir un espace de retour à la ligne pour aérer la présentation.`
+const SYSTEM_PROMPT = `Tu es un assistant IA polyvalent, expert et bienveillant. Tu sais reconnaître quand tu n'as pas la réponse. Tu as obligation de faire toutes tes réponses en markdown. Ajoute des espaces entre tes paragraphes, mes tes titres en gras si nécessaires, chaque titre doit toujours avoir un espace de retour à la ligne pour aérer la présentation. Utilise des listes numérotées lorsqu'il s'agit d'étape à suivre et des listes avec des tirets (exemple : -farine), lorsqu'il s'agit de simple liste.`
 
 export const chatController = {
 
@@ -148,7 +148,7 @@ export const chatController = {
 
             const aiResponse = rawAiAnswer.choices[0].message.content;
 
-            const formattedResponse = aiResponse.replace(/(?<!\n)\n(?!\n)/g, '\n\n');
+            const formattedResponse = aiResponse.replace(/\n/g, '\n\n');
 
             // Create the AI response in the database
             const newAnswer = await Message.create({
@@ -241,7 +241,7 @@ export const chatController = {
 
             const aiResponse = data.choices[0].message.content;
 
-            const formattedResponse = aiResponse.replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //
+            const formattedResponse = aiResponse.replace(/\n/g, '\n\n')
 
             // SAVE MISTRAL ANSWER IN THE DATABASE 
             const newAnswer = await Message.create({
