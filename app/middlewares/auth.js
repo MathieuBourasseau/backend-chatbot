@@ -14,7 +14,7 @@ export const authenticateToken = (req, res, next) => {
     }
 
     // Checking if the token is valid
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.SECRET, (err, user) => {
         if (err) {
             return res.status(403).json({ error: "Token invalide ou expiré." });
         }
